@@ -74,6 +74,7 @@ This repo describes my home network.
 ### NAS
 
 [Synology DS920+](https://global.download.synology.com/download/Document/Hardware/DataSheet/DiskStation/20-year/DS920+/enu/Synology_DS920_Plus_Data_Sheet_enu.pdf):
+- hostname: chronos
 - 4x4TB [Seagate Ironwolf HDDs](https://www.seagate.com/gb/en/products/nas-drives/ironwolf-hard-drive/)
 - UPS: [APC Smart-UPS 750VA SmartConnect](https://www.apc.com/shop/hr/en/products/APC-Smart-UPS-Line-Interactive-750VA-Tower-230V-6x-IEC-C13-outlets-SmartConnect-Port-SmartSlot-AVR-LCD/P-SMT750IC)
 - raid type: SHR (with data protection for 1-drive fault tolerance)
