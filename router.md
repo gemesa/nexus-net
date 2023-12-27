@@ -29,6 +29,7 @@
     - https://forum.openwrt.org/t/solved-openwrt-is-not-sending-syslog-messages-to-external-syslog-server/77078
   - TODO: review router access security
     - https://openwrt.org/docs/guide-user/security/secure.access
+    - https://news.ycombinator.com/item?id=17648956
   - install LuCI stats
     - https://openwrt.org/docs/guide-user/luci/luci_app_statistics
   - configure DDNS client (dynu.com)
@@ -39,6 +40,36 @@
     - `echo "export TERM=xterm" > .profile`
     - `echo "echo \"TERM set to xterm\"" > .profile`
     - https://openwrt.org/docs/guide-user/base-system/user.beginner.cli
+  - set up WireGuard server
+    - install WG
+      - https://www.youtube.com/watch?v=Bo2AsW4BMOo
+      - https://openwrt.org/docs/guide-user/services/vpn/wireguard/server
+    - create client configs
+      - https://serverfault.com/questions/1058255/configure-dns-routing-in-wireguard
+      - https://www.reddit.com/r/WireGuard/comments/eeaysn/creating_config_file_for_windows_clients_to_import/
+      - https://upcloud.com/community/tutorials/get-started-wireguard-vpn/
+      - set DNS server on client side to avoid DNS leak
+        - https://forum.openwrt.org/t/solved-wireguard-dns-leak-on-the-mobile-device/14640/3
+      - configure full tunnel
+        - server: `route allowed ips`
+        - client: `allowed ips: 0.0.0.0/0, ::/0`
+        - https://www.reddit.com/r/WireGuard/comments/k7yb0f/need_help_split_tunnel_works_full_tunnel_doesnt/
+      - utilize preshared keys for maximum security
+        - https://wiki.archlinux.org/title/WireGuard
+      - configure ipv6 address
+    - TODO: configure WG logging
+  - set DNS server: 1.1.1.1
+  - configure encrypted DNS
+    - https://openwrt.org/docs/guide-user/services/dns/doh_dnsmasq_https-dns-proxy
+    - install related LuCI UI package as well
+  - configure DNS hijacking
+    - https://openwrt.org/docs/guide-user/firewall/fw3_configurations/intercept_dns
+    - https://forum.openwrt.org/t/does-https-dns-proxy-protect-against-dns-hijacking/107602/3
+  - TODO: experiment with bridge/transparent firewall
+  - TODO: create vlans
+    - https://www.youtube.com/watch?v=UvniZs8q3eU
+    - https://www.youtube.com/watch?v=4t_S2oWsBpE
+  - TODO: test WebRTC leak
 - after reset:
   - default mode: router
   - no pw by default
