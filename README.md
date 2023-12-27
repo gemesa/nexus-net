@@ -69,6 +69,7 @@ See [isp-router.md](isp-router.md)
 - access:
   - http://helios.lan or http://192.168.1.1
   - ssh (key auth enabled, pw auth disabled)
+- WireGuard server
 
 #### Details
 
@@ -90,7 +91,8 @@ See [router.md](router.md)
 - access:
   - http://chronos.lan or http://192.168.1.100
   - ssh (both key and pw auth enabled)
-  - ftp
+- syslog server
+- ftp server
 
 #### Details
 
