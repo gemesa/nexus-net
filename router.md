@@ -1,12 +1,44 @@
 ## Installation and configuration
 
-- router mode (default)
-- OpenWrt firmware
-- hostname: helios
-- access:
-  - http://helios.lan or http://192.168.1.1
-  - ssh (key auth enabled, pw auth disabled)
+- install OpenWrt firmware
+  - https://openwrt.org/toh/views/toh_fwdownload
+  - https://openwrt.org/toh/netgear/r7800
+  - https://www.youtube.com/watch?v=wrREvRUD9Ng
+  - https://www.thewindowsclub.com/enable-tftp-windows-10
+  - https://www.reddit.com/r/openwrt/comments/17aanhj/anything_to_do_after_flashing_openwrt_for_a/
+- access: http://192.168.1.1
+- configuration:
+  - https://www.youtube.com/watch?v=uhJF0XmVhME
+  - disable ssh pw auth
+  - generate ssh keys and add public key
+  - set hostname: helios --> access: http://helios.lan
+  - enable wireless
+    - SSID: Helios
+    - SSID: Helios-5G
+    - country code: HU
+    - encryption: WPA2-PSK (WPA3-SAE would be better but some older HW does not support it)
+    - enable krack countermeasures
+    - TODO: enable and test 802.11w MFP (some clients may not support this)
+        - https://forum.openwrt.org/t/i-need-help-how-to-prevent-wifi-from-dissociation-attack/85229
+  - set static leases
+    - chronos (Synology NAS) -> 192.168.1.100
+    - Dahua XVR -> 192.168.1.101
+    - vulcan (RPi backup NAS) -> 192.168.1.102
+  - configure syslog (syslog server is running on chronos)
+    - https://openwrt.org/docs/guide-user/base-system/log.essentials
+    - https://forum.openwrt.org/t/solved-openwrt-is-not-sending-syslog-messages-to-external-syslog-server/77078
+  - TODO: review router access security
+    - https://openwrt.org/docs/guide-user/security/secure.access
+  - install LuCI stats
+    - https://openwrt.org/docs/guide-user/luci/luci_app_statistics
+  - configure DDNS client (dynu.com)
+    - https://openwrt.org/docs/guide-user/services/ddns/client
+    - https://www.youtube.com/watch?v=OWZkjawcM8A
+  - set `TERM` (necessary for `vi` to work properly)
+    - `touch .profile`
+    - `echo "export TERM=xterm" > .profile`
+    - `echo "echo \"TERM set to xterm\"" > .profile`
+    - https://openwrt.org/docs/guide-user/base-system/user.beginner.cli
 - after reset:
   - default mode: router
-  - no pw after reset
-- [WireGuard VPN server](https://openwrt.org/docs/guide-user/services/vpn/wireguard/server)
+  - no pw by default
