@@ -1,75 +1,104 @@
 ## Installation and configuration
 
-- install OpenWrt firmware
+### Install OpenWrt firmware
+
   - https://openwrt.org/toh/views/toh_fwdownload
   - https://openwrt.org/toh/netgear/r7800
   - https://www.youtube.com/watch?v=wrREvRUD9Ng
   - https://www.thewindowsclub.com/enable-tftp-windows-10
-  - https://www.reddit.com/r/openwrt/comments/17aanhj/anything_to_do_after_flashing_openwrt_for_a/
+
+### Generic configuration
+
 - access: http://192.168.1.1
-- configuration:
+- set root pw
+- disable ssh pw auth
+- generate ssh keys and add public key
+- install LuCI stats
+  - https://openwrt.org/docs/guide-user/luci/luci_app_statistics
+- set `TERM` (necessary for `vi` to work properly)
+  - `touch .profile`
+  - `echo "export TERM=xterm" > .profile`
+  - `echo "echo \"TERM set to xterm\"" > .profile`
+  - https://openwrt.org/docs/guide-user/base-system/user.beginner.cli
+- general setup guides:
   - https://www.youtube.com/watch?v=uhJF0XmVhME
-  - disable ssh pw auth
-  - generate ssh keys and add public key
-  - set hostname: helios --> access: http://helios.lan
-  - enable wireless
-    - SSID: Helios
-    - SSID: Helios-5G
-    - country code: HU
-    - encryption: WPA2-PSK (WPA3-SAE would be better but some older HW does not support it)
-    - enable krack countermeasures
-    - TODO: enable and test 802.11w MFP (some clients may not support this)
-        - https://forum.openwrt.org/t/i-need-help-how-to-prevent-wifi-from-dissociation-attack/85229
-  - set static leases
-    - chronos (Synology NAS) -> 192.168.1.100
-    - Dahua XVR -> 192.168.1.101
-    - vulcan (RPi backup NAS) -> 192.168.1.102
-  - configure syslog (syslog server is running on chronos)
-    - https://openwrt.org/docs/guide-user/base-system/log.essentials
-    - https://forum.openwrt.org/t/solved-openwrt-is-not-sending-syslog-messages-to-external-syslog-server/77078
-  - TODO: review router access security
-    - https://openwrt.org/docs/guide-user/security/secure.access
-    - https://news.ycombinator.com/item?id=17648956
-  - install LuCI stats
-    - https://openwrt.org/docs/guide-user/luci/luci_app_statistics
-  - configure DDNS client (dynu.com)
-    - https://openwrt.org/docs/guide-user/services/ddns/client
-    - https://www.youtube.com/watch?v=OWZkjawcM8A
-  - set `TERM` (necessary for `vi` to work properly)
-    - `touch .profile`
-    - `echo "export TERM=xterm" > .profile`
-    - `echo "echo \"TERM set to xterm\"" > .profile`
-    - https://openwrt.org/docs/guide-user/base-system/user.beginner.cli
-  - set up WireGuard server
-    - install WG
-      - https://www.youtube.com/watch?v=Bo2AsW4BMOo
-      - https://openwrt.org/docs/guide-user/services/vpn/wireguard/server
-    - create client configs
-      - https://serverfault.com/questions/1058255/configure-dns-routing-in-wireguard
-      - https://www.reddit.com/r/WireGuard/comments/eeaysn/creating_config_file_for_windows_clients_to_import/
-      - https://upcloud.com/community/tutorials/get-started-wireguard-vpn/
-      - set DNS server on client side to avoid DNS leak
-        - https://forum.openwrt.org/t/solved-wireguard-dns-leak-on-the-mobile-device/14640/3
-      - configure full tunnel
-        - server: `route allowed ips`
-        - client: `allowed ips: 0.0.0.0/0, ::/0`
-        - https://www.reddit.com/r/WireGuard/comments/k7yb0f/need_help_split_tunnel_works_full_tunnel_doesnt/
-      - utilize preshared keys for maximum security
-        - https://wiki.archlinux.org/title/WireGuard
-      - configure ipv6 address
-    - TODO: configure WG logging
-  - set DNS server: 1.1.1.1
-  - configure encrypted DNS
-    - https://openwrt.org/docs/guide-user/services/dns/doh_dnsmasq_https-dns-proxy
-    - install related LuCI UI package as well
-  - configure DNS hijacking
-    - https://openwrt.org/docs/guide-user/firewall/fw3_configurations/intercept_dns
-    - https://forum.openwrt.org/t/does-https-dns-proxy-protect-against-dns-hijacking/107602/3
-  - TODO: experiment with bridge/transparent firewall
-  - TODO: create vlans
-    - https://www.youtube.com/watch?v=UvniZs8q3eU
-    - https://www.youtube.com/watch?v=4t_S2oWsBpE
-  - TODO: test WebRTC leak
-- after reset:
-  - default mode: router
-  - no pw by default
+  - https://www.reddit.com/r/openwrt/comments/17aanhj/anything_to_do_after_flashing_openwrt_for_a/
+
+### Security
+
+- TODO: review router access security
+  - https://openwrt.org/docs/guide-user/security/secure.access
+  - https://news.ycombinator.com/item?id=17648956
+
+### Wireless
+
+- SSID: Helios
+- SSID: Helios-5G
+- country code: HU
+- encryption: WPA2-PSK (WPA3-SAE would be better but some older HW does not support it)
+- enable krack countermeasures
+- TODO: enable and test 802.11w MFP (some clients may not support this)
+    - https://forum.openwrt.org/t/i-need-help-how-to-prevent-wifi-from-dissociation-attack/85229
+
+### Static leases
+
+- chronos (Synology NAS) -> 192.168.1.100
+- Dahua XVR -> 192.168.1.101
+- vulcan (RPi backup NAS) -> 192.168.1.102
+
+### syslog
+
+- syslog server is running on NAS
+- https://openwrt.org/docs/guide-user/base-system/log.essentials
+- https://forum.openwrt.org/t/solved-openwrt-is-not-sending-syslog-messages-to-external-syslog-server/77078
+
+### DNS
+
+- set hostname: helios --> access: http://helios.lan
+- set DNS server: 1.1.1.1
+- configure encrypted DNS
+  - https://openwrt.org/docs/guide-user/services/dns/doh_dnsmasq_https-dns-proxy
+  - install related LuCI UI package as well
+- configure DNS hijacking
+  - https://openwrt.org/docs/guide-user/firewall/fw3_configurations/intercept_dns
+  - https://forum.openwrt.org/t/does-https-dns-proxy-protect-against-dns-hijacking/107602/3
+
+### DDNS
+
+- https://www.dynu.com/en-US/
+- https://openwrt.org/docs/guide-user/services/ddns/client
+- https://www.youtube.com/watch?v=OWZkjawcM8A
+
+### WireGuard server
+
+#### Install WG
+
+- https://www.youtube.com/watch?v=Bo2AsW4BMOo
+- https://openwrt.org/docs/guide-user/services/vpn/wireguard/server
+- TODO: configure WG logging
+
+#### Create client configs
+
+- https://serverfault.com/questions/1058255/configure-dns-routing-in-wireguard
+- https://www.reddit.com/r/WireGuard/comments/eeaysn/creating_config_file_for_windows_clients_to_import/
+- https://upcloud.com/community/tutorials/get-started-wireguard-vpn/
+- set DNS server on client side to avoid DNS leak
+  - https://forum.openwrt.org/t/solved-wireguard-dns-leak-on-the-mobile-device/14640/3
+- configure full tunnel
+  - server config: `route allowed ips`
+  - client config: `allowed ips: 0.0.0.0/0, ::/0`
+  - https://www.reddit.com/r/WireGuard/comments/k7yb0f/need_help_split_tunnel_works_full_tunnel_doesnt/
+- utilize preshared keys for maximum security
+  - https://wiki.archlinux.org/title/WireGuard
+- configure ipv6 address
+
+### VLAN
+
+- TODO: create VLANs
+  - https://www.youtube.com/watch?v=UvniZs8q3eU
+  - https://www.youtube.com/watch?v=4t_S2oWsBpE
+
+### Other
+
+- TODO: test WebRTC leak
+- TODO: experiment with bridge/transparent firewall
