@@ -104,3 +104,14 @@ See [nas.md](nas.md)
 
 - [APC Smart-UPS 750VA SmartConnect](https://www.apc.com/shop/hr/en/products/APC-Smart-UPS-Line-Interactive-750VA-Tower-230V-6x-IEC-C13-outlets-SmartConnect-Port-SmartSlot-AVR-LCD/P-SMT750IC)
 - connected to NAS via USB
+
+### XVR
+
+#### Overview
+
+- [XVR5108HS-X](https://www.dahuasecurity.com/asset/upload/uploads/soft/20200529/XVR5108-16HS-X_Datasheet_20200529.pdf)
+- access: http://192.168.1.101 (Edge in IE mode)
+
+#### Details
+
+See [xvr.md](xvr.md)
