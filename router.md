@@ -23,6 +23,7 @@
 - general setup guides:
   - https://www.youtube.com/watch?v=uhJF0XmVhME
   - https://www.reddit.com/r/openwrt/comments/17aanhj/anything_to_do_after_flashing_openwrt_for_a/
+  - https://forum.openwrt.org/t/change-lan-ip-from-luci-do-not-apply/63048?fbclid=IwAR0pwt3YwD07T4WZ57X-hbE68Cu1Bd_Z1sr_DOY_01jzpvb_QS28LvJzRF4
 
 ### Security
 
