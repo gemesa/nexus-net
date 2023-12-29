@@ -1,6 +1,6 @@
 # nexus-net
 
-This repo describes my home network.
+This repository is a snapshot of my home network setup.
 
 ## Network topology
 
