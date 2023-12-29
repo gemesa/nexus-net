@@ -30,6 +30,13 @@
 - TODO: review router access security
   - https://openwrt.org/docs/guide-user/security/secure.access
   - https://news.ycombinator.com/item?id=17648956
+- TODO: review CCTV security
+  - https://www.een.com/security-camera-system-cyber-best-practices/
+  - https://www.ic2cctv.com/wp-content/uploads/2017/04/iC2-12-ways-Cyberattack_V2.pdf
+  - https://www.cctvcameraworld.com/secure-security-camera-system-on-internet/
+  - https://www.consumer.ftc.gov/articles/0382-using-ip-cameras-safely
+  - https://blog.cammy.com/prevent-ip-camera-hacking
+  - https://reolink.com/how-to-secure-your-wifi-enabled-home-camera/
 
 ### Wireless
 
