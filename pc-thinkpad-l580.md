@@ -23,7 +23,8 @@
 ### Setup
 
 - enable third party repos
-- add user
+- add user (set profile pic)
+- set background
 - `sudo dnf upgrade --refresh`
 - check updates in **Software** as well (system updates for example)
 - enable ssh-rsa keys
