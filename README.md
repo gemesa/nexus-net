@@ -125,3 +125,10 @@ See [xvr.md](xvr.md)
 #### Overview
 
 - TODO: add product link
+
+### IP Camera
+
+#### Overview
+
+- [D-Link DCS-8526LH](https://www.dlink.com/en/products/dcs-8526lh-mydlink-full-hd-pan--tilt-pro-wi-fi-camera)
+- connected to NAS **Surveillance Station** via ONVIF
