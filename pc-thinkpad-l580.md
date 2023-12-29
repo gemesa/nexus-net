@@ -1,0 +1,130 @@
+## Installation and configuration
+
+### Install
+
+- create bootable USB with **Fedora Media Writer**
+  - https://fedoraproject.org/workstation/download
+- boot from USB (F12)
+- installation
+  - language: english (US)
+  - keyboard: HU
+  - time (HU)
+  - installation media: Samsung NVMe
+  - enable LUKS encryption
+  - reclaim space (delete all partitions)
+- install extra M.2 NVMe SSD (KBG40ZMT128G)
+  - https://qubitsandbytes.co.uk/m-2-drives-are-not-all-equal/
+  - https://forums.lenovo.com/t5/ThinkPad-L-R-and-SL-series-Laptops/L580-extra-SSD-slot/m-p/5222063
+  - https://www.reddit.com/r/thinkpad/comments/dydih6/t580_wont_turn_on_with_m2_nvme_ssd_in_wwan_slot/
+  - encrypt it with LUKS
+  - use `fstab` and `crypttab` to mount and unlock it automatically
+  - use it as a backup destination: data (`borg`) and system (`timeshift`) files
+
+### Setup
+
+- enable third party repos
+- add user
+- `sudo dnf upgrade --refresh`
+- check updates in **Software** as well (system updates for example)
+- enable ssh-rsa keys
+  - https://www.reddit.com/r/Fedora/comments/jh9iyi/f33_openssh_no_mutual_signature_algorithm/
+  - https://confluence.atlassian.com/bitbucketserverkb/ssh-rsa-key-rejected-with-message-no-mutual-signature-algorithm-1026057701.html
+  - https://unix.stackexchange.com/questions/630446/ssh-in-fedora-33-error-sign-and-send-pubkey-no-mutual-signature-supported
+- install base apps
+  - **Virtual Machine Manager**
+  - **Beyond Compare**
+  - **VS Code**
+  - **Docker**
+  - **NormCap**
+  - **Wireshark**
+  - **Ghidra**
+  - **Remmina**
+  - **Raspberry Pi Imager**
+  - **Timeshift**
+  - **GitKraken**
+  - **VirtualBox**
+  - **Burp Suite**
+  - **Postman**
+  - **Bless Hex Editor**
+  - **LibreOffice**
+- install optional apps
+  - **CLion**
+  - **PyCharm**
+  - **Geany**
+  - **STM32CubeIDE**
+  - **VLC**
+  - **GIMP**
+  - **Pinta**
+- configure Dash
+  - pin **Terminal**
+  - remove **Software**
+  - remove **Calendar**
+  - Dash layout: **Firefox**, **Terminal**, **Files**, **Settings** + the apps above
+- Firefox
+  - enable dark theme
+  - set Google to english
+  - extensions:
+    - **Dark Reader**
+    - **ESET PW Manager**
+    - **Wappalyzer**
+    - **Windscribe VPN**
+- install **Gnome Tweaks**
+  - **Tweaks** --> **Windows** --> **Titlebar Buttons**
+    - check "Maximize"
+    - check "Minimize"
+    - set "Placement" to right
+- dark theme + nightlight
+  - **Settings** --> **Appearance** --> **Style**
+  - **Settings** --> **Night Light**
+    - manual schedule
+    - color temp: 3/4
+- update DNF config (`/etc/dnf/dnf.conf`)
+  - `max_parallel_downloads=10`
+    - https://www.reddit.com/r/Fedora/comments/bc9pyz/why_is_dnf_so_excruciatingly_slow/
+  - `defaultyes=True`
+    - https://www.reddit.com/r/Fedora/comments/rpttto/make_y_the_default_action_in_dnf/
+- install packages
+  - `sudo dnf install zsh`
+  - `chsh -s $(which zsh)`
+  - `sudo dnf install wireguard-tools`
+  - `sudo dnf install fira-code-fonts`
+  - `sudo dnf install neovim`
+  - `sudo dnf install cryptsetup`
+  - `sudo dnf install borgbackup`
+  - `sudo dnf install valgrind`
+  - `sudo dnf install bmon`
+  - `sudo dnf install nmap`
+  - `sudo dnf install p0f`
+  - `sudo dnf install hashcat`
+  - `sudo dnf install aircrack-ng`
+  - `sudo dnf install shellcheck`
+  - `sudo dnf install shfmt`
+  - `sudo dnf install tftp-server tftp`
+  - `sudo dnf install gpsbabel`
+  - `sudo dnf install make autoconf automake cmake ninja-build ccache gcc gcc-c++ kernel-devel`
+  - `sudo dnf install clang`
+  - `sudo dnf install git curl wget python3`
+  - `sudo dnf install coreutils`
+  - `sudo dnf install gdb`
+  - `sudo dnf install minicom`
+  - `sudo dnf install xfreerdp`
+  - `sudo dnf install hydra`
+  - `sudo dnf install htop`
+  - `sudo dnf install upx`
+  - `sudo dnf install hexedit`
+  - `sudo dnf install nasm`
+  - `sudo dnf install gobuster`
+  - `sudo dnf install mingw64-gcc`
+  - `sudo dnf install strace`
+  - `sudo dnf install musl-tools`
+  - `sudo dnf install pandoc`
+- manual installation
+  - https://www.rust-lang.org/tools/install
+  - https://github.com/ZerBea/hcxdumptool
+  - https://github.com/ZerBea/hcxtools
+  - https://github.com/openwall/john
+  - https://github.com/klauspost/asmfmt
+  - https://github.com/frida/frida
+  - https://github.com/rapid7/metasploit-framework
+  - https://github.com/blackberry/pe_tree
+  - https://github.com/volatilityfoundation/volatility3

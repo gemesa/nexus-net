@@ -132,3 +132,10 @@ See [xvr.md](xvr.md)
 
 - [D-Link DCS-8526LH](https://www.dlink.com/en/products/dcs-8526lh-mydlink-full-hd-pan--tilt-pro-wi-fi-camera)
 - connected to NAS **Surveillance Station** via ONVIF
+
+### PC
+
+#### Overview
+
+- [Lenovo ThinkPad L580](https://www.lenovo.com/us/en/p/laptops/thinkpad/thinkpadl/thinkpad-l580/22tp2tbl580)
+- Fedora
