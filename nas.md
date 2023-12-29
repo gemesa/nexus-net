@@ -36,10 +36,59 @@
 - install surveillance station at **Package Center** --> **Surveillance Station**
   - integrate IP cam(s) using ONVIF
 
-### Automated emails
+### Scheduled tasks
+
+- schedule tasks at **Control Panel** --> **Task Scheduler**
+
+#### Task 0: empty recycle bins
+
+- user: root
+- schedule: repeat daily
+- action: empty all recycle bins
+- retention policy: number of days to retain deleted files: 14
+
+#### Task 1: send email reminders
 
 - create a "mail" shared folder (with encryption, recycle bin and checksum)
-- create a dedicated mail user which can only access this shared folder (this account will be used to send automated email reminders)
+- create a dedicated mail user which can only access this shared folder
+  - this account will be used to send automated email reminders
+  - this folder will contain the sendmail script and the email messages
+- user: dedicated mail user
+- schedule: custom
+- notification: send run details by email
+- run command: `bash /volume1/mail/send-mail.sh`
+
+```
+$ cat send-mail.sh
+#!/bin/bash
+/sbin/sendmail -v -t < /volume1/mail/msg.txt
+```
+
+#### Task 2: remove old CCTV files
+
+- user: dedicated ftp/cctv user
+- schedule: repeat daily
+- notification: send run details by email
+- run command: `bash /volume1/cctv/cleanup.sh`
+
+```
+$ cat cleanup.sh
+#!/bin/bash
+
+LOG_FILE="/volume1/cctv/cleanup.log"
+
+echo "[START] $(date)" >> $LOG_FILE
+
+find "/volume1/cctv/192.168.1.101" -mtime +60 -type f -exec rm -v "{}" \; >> $LOG_FILE 2>&1 \
+&& echo "[SUCCESS - removing files] $(date)" >> $LOG_FILE \
+|| echo "[FAIL - removing files] $(date)" >> $LOG_FILE
+
+find "/volume1/cctv/192.168.1.101" -depth -type d -exec rmdir -v "{}" \; >> $LOG_FILE 2>&1 \
+&& echo "[SUCCESS - removing folders] $(date)" >> $LOG_FILE \
+|| echo "[FAIL - removing folders] $(date)" >> $LOG_FILE
+
+echo "[FINISH] $(date)" >> $LOG_FILE
+```
 
 ### Hardware & power
 
@@ -76,6 +125,8 @@
       - keep the latest snapshot for 3 months
       - number of latest snapshots to keep: 5
 - generate and add ssh keys
+  - https://samuelsson.dev/log-in-with-ssh-key-authorization-on-a-synology-nas/
+  - https://www.youtube.com/watch?v=XN9SuzV08Ew
   - https://kb.synology.com/en-us/DSM/tutorial/How_to_log_in_to_DSM_with_key_pairs_as_admin_or_root_permission_via_SSH_on_computers
   - https://www.reddit.com/r/synology/comments/12drqpz/ssh_key_authentication_on_synology/
 - install log center at **Package Center** --> **Log Center**
