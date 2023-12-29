@@ -95,6 +95,8 @@
   - https://www.youtube.com/watch?v=d5rqwLv1gIU
   - https://kb.synology.com/en-in/DSM/help/LogCenter/logcenter_server?version=6
 - TODO: enable 2FA
+- TODO: review https://www.itsmdaily.com/how-to-secure-synology-nas-against-exploits-malware-cryptolockers/
+- TODO: review https://www.youtube.com/watch?v=916idkMTuKg
 
 ### DNS
 
