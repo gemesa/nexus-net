@@ -92,7 +92,10 @@ See [router.md](router.md)
   - http://chronos.lan or http://192.168.1.100
   - ssh (both key and pw auth enabled)
 - syslog server
-- ftp server
+- P2P file sharing server
+- surveillance server
+  - FTP server (XVR syncs CCTV data via FTP)
+  - **Surveillance Station** (access IP cams via ONVIF)
 
 #### Details
 
@@ -111,6 +114,7 @@ See [nas.md](nas.md)
 
 - [XVR5108HS-X](https://www.dahuasecurity.com/asset/upload/uploads/soft/20200529/XVR5108-16HS-X_Datasheet_20200529.pdf)
 - access: http://192.168.1.101 (Edge in IE mode)
+- syncs CCTV data via FTP to NAS
 
 #### Details
 
