@@ -25,19 +25,6 @@
   - https://www.reddit.com/r/openwrt/comments/17aanhj/anything_to_do_after_flashing_openwrt_for_a/
   - https://forum.openwrt.org/t/change-lan-ip-from-luci-do-not-apply/63048?fbclid=IwAR0pwt3YwD07T4WZ57X-hbE68Cu1Bd_Z1sr_DOY_01jzpvb_QS28LvJzRF4
 
-### Security
-
-- TODO: review router access security
-  - https://openwrt.org/docs/guide-user/security/secure.access
-  - https://news.ycombinator.com/item?id=17648956
-- TODO: review CCTV security
-  - https://www.een.com/security-camera-system-cyber-best-practices/
-  - https://www.ic2cctv.com/wp-content/uploads/2017/04/iC2-12-ways-Cyberattack_V2.pdf
-  - https://www.cctvcameraworld.com/secure-security-camera-system-on-internet/
-  - https://www.consumer.ftc.gov/articles/0382-using-ip-cameras-safely
-  - https://blog.cammy.com/prevent-ip-camera-hacking
-  - https://reolink.com/how-to-secure-your-wifi-enabled-home-camera/
-
 ### Wireless
 
 - SSID: Helios
@@ -99,6 +86,19 @@
 - utilize preshared keys for maximum security
   - https://wiki.archlinux.org/title/WireGuard
 - configure ipv6 address
+
+### Security
+
+- TODO: review router access security
+  - https://openwrt.org/docs/guide-user/security/secure.access
+  - https://news.ycombinator.com/item?id=17648956
+- TODO: review CCTV security
+  - https://www.een.com/security-camera-system-cyber-best-practices/
+  - https://www.ic2cctv.com/wp-content/uploads/2017/04/iC2-12-ways-Cyberattack_V2.pdf
+  - https://www.cctvcameraworld.com/secure-security-camera-system-on-internet/
+  - https://www.consumer.ftc.gov/articles/0382-using-ip-cameras-safely
+  - https://blog.cammy.com/prevent-ip-camera-hacking
+  - https://reolink.com/how-to-secure-your-wifi-enabled-home-camera/
 
 ### VLAN
 
