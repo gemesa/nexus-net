@@ -42,6 +42,8 @@
 
 #### Task 0: empty recycle bins
 
+##### Task config
+
 - user: root
 - schedule: repeat daily
 - action: empty all recycle bins
@@ -53,6 +55,9 @@
 - create a dedicated mail user which can only access this shared folder
   - this account will be used to send automated email reminders
   - this folder will contain the sendmail script and the email messages
+
+##### Task config
+
 - user: dedicated mail user
 - schedule: custom
 - notification: send run details by email
@@ -65,6 +70,8 @@ $ cat send-mail.sh
 ```
 
 #### Task 2: remove old CCTV files
+
+##### Task config
 
 - user: dedicated ftp/cctv user
 - schedule: repeat daily
