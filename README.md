@@ -95,8 +95,8 @@ See [router.md](router.md)
   - XVR syncs CCTV data via FTP
 - syslog server
 - P2P file sharing server
-- surveillance server (**Surveillance Station** - IP cams)
-- SMTP relay (scheduled email messages)
+- surveillance server (IP cams)
+- mail server (SMTP relay)
 
 #### Details
 
