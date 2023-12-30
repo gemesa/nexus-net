@@ -24,6 +24,8 @@
 - enable SMB at **Control Panel** --> **File Services** --> **SMB**
 - enable rsync service at **Control Panel** --> **File Services** --> **rsync**
   - rsync via ssh is way faster than copying data via SMB when creating backups
+  - https://roll.urown.net/NAS/nas_backup.html
+  - https://linuxconfig.org/how-to-create-incremental-backups-using-rsync-on-linux
 - install download station at **Package Center** --> **Download Station**
   - create a "P2P" shared folder (without recycle bin and checksum)
   - create a dedicated P2P user which can only access this shared folder (this account will be used for accessing **Download Station** and the downloaded files)
@@ -35,6 +37,19 @@
   - create a dedicated FTP user which can only access this shared folder (XVR will log in and sync CCTV data using this account)
 - install surveillance station at **Package Center** --> **Surveillance Station**
   - integrate IP cam(s) using ONVIF
+
+#### D-Link DCS-8526LH
+
+- **Surveillance Station** --> **IP Camera** --> **Add**
+- network scan does not find the device --> add it manually
+  - D-Link
+  - DCS-8526LH
+  - see pw on bottom of the device
+  - install **mydlink** app
+    - update firmware
+    - set timezone (done automatically)
+  - connect through ONVIF with Synology, the camera will be managed by Synology after this and can be removed in **mydlink** app
+  - set resolution, fps, bitrate etc
 
 ### Scheduled tasks
 
@@ -155,6 +170,7 @@ echo "[FINISH] $(date)" >> $LOG_FILE
       - keep the latest snapshot for 8 weeks
       - keep the latest snapshot for 3 months
       - number of latest snapshots to keep: 5
+    - exception: CCTV folder: keep all snapshots for 14 days
 - generate and add ssh keys
   - https://samuelsson.dev/log-in-with-ssh-key-authorization-on-a-synology-nas/
   - https://www.youtube.com/watch?v=XN9SuzV08Ew
@@ -177,9 +193,20 @@ echo "[FINISH] $(date)" >> $LOG_FILE
   - https://www.youtube.com/watch?v=d5rqwLv1gIU
   - https://kb.synology.com/en-in/DSM/help/LogCenter/logcenter_server?version=6
 - TODO: enable 2FA
-- TODO: review https://www.itsmdaily.com/how-to-secure-synology-nas-against-exploits-malware-cryptolockers/
-- TODO: review https://www.youtube.com/watch?v=916idkMTuKg
+- TODO: review these:
+  - https://www.itsmdaily.com/how-to-secure-synology-nas-against-exploits-malware-cryptolockers/
+  - https://www.youtube.com/watch?v=916idkMTuKg
+  - https://www.youtube.com/watch?v=G3BJo4B1GgU
+  - https://www.youtube.com/watch?v=uausl6HeFjg
 
 ### DNS
 
 - hostname: chronos
+
+### Other
+
+#### OpenVPN
+
+- WireGuard is my personal preference over OpenVPN, so these links are here just for archival purposes
+- https://www.wundertech.net/synology-nas-openvpn-server-setup-configuration/
+- https://community.synology.com/enu/forum/17/post/113967
