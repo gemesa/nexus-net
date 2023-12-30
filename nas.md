@@ -51,10 +51,28 @@
 
 #### Task 1: send email reminders
 
+##### Shared folder
+
 - create a "mail" shared folder (with encryption, recycle bin and checksum)
 - create a dedicated mail user which can only access this shared folder
   - this account will be used to send automated email reminders
   - this folder will contain the sendmail script and the email messages
+
+##### SMTP config
+
+- generate an app pw
+  - https://stackoverflow.com/questions/73365098/how-to-turn-on-less-secure-app-access-on-google
+- install mail server at **Package Center** --> **Synology Mail Server**
+  - https://geektank.net/2022/01/29/sending-email-from-synology-via-cli-ssh-on-dsm-6/
+- enable SMTP and SMTP auth at **Synology Mail Server** --> **SMTP**
+  - hostname (FQDN): synology.com
+- configure SMTP relay at **Synology Mail Server** --> **SMTP** --> **SMTP Relay**
+  - enable SMTP relay
+  - server: smtp.gmail.com
+  - port: 587
+  - check "Always use a secure connection (TLS)"
+  - check "Authentication required"
+    - fill credentials (use the generated app pw)
 
 ##### Task config
 
@@ -67,6 +85,12 @@
 $ cat send-mail.sh
 #!/bin/bash
 /sbin/sendmail -v -t < /volume1/mail/msg.txt
+$ cat msg.txt
+To: <your-email>
+From: <your-email-configured-in-smtp-relay>
+Subject: test
+
+<your-message>
 ```
 
 #### Task 2: remove old CCTV files
