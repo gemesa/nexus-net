@@ -2,10 +2,17 @@
 
 ### Install OpenWrt firmware
 
-  - https://openwrt.org/toh/views/toh_fwdownload
-  - https://openwrt.org/toh/netgear/r7800
-  - https://www.youtube.com/watch?v=wrREvRUD9Ng
-  - https://www.thewindowsclub.com/enable-tftp-windows-10
+#### Netgear Nighthawk X4S R7800
+
+https://openwrt.org/toh/netgear/r7800
+
+#### ASUS RT-AX53U
+
+https://gemesa.dev/flash-openwrt-on-your-asus-rt-ax53u-router
+
+#### TP-Link Archer C7
+
+https://gemesa.dev/unbrick-your-tp-link-archer-c7-openwrt-router
 
 ### Generic configuration
 
