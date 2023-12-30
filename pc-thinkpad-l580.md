@@ -119,9 +119,7 @@ backup-data /dev/disk/by-uuid/<UUID> <path to LUKS key> luks
 
 #### Base apps
 
-- **Virtual Machine Manager**
 - **Beyond Compare**
-- **VS Code**
 - **Docker**
 - **NormCap**
 - **Wireshark**
@@ -240,15 +238,49 @@ sudo crontab -e
 /30 * * * * <path to borg.sh> >> <path to borg.log> 2>&1
 ```
 
+##### VS Code
+
+- **File** --> **Preferences** --> **Settings** --> **Text Editor**
+  - --> **Font**
+    - Font size: 12
+    - Font family: Fira Code
+  - --> **Files**
+    - Auto Save: afterDelay
+- **Extensions**
+  - **Even Better TOML**
+  - **rust-analyzer**
+  - **x86 and x86_64 Assembly**
+  - **CodeLLDB**
+
+##### Virtual Machine Manager
+
+- https://fedoramagazine.org/full-virtualization-system-on-fedora-workstation-30/
+- create Ubuntu 22.04 VM
+    - **Virtual Machine Manager** --> Ubuntu VM --> **Open** --> **Show virtual hardware details** --> **Video** --> select VGA or Virtio (disable 3D acceleration)
+    - Ubuntu VM --> **Settings** --> **Displays** --> resolution: 1920x1080
+        - https://superuser.com/questions/132322/how-to-increase-the-visualized-screen-resolution-on-qemu-kvm
+- set up shared folder
+    - https://blog.sergeantbiggs.net/posts/file-sharing-with-qemu-and-virt-manager/
+    - https://nts.strzibny.name/how-to-set-up-shared-folders-in-virt-manager/
+
 #### Optional apps
 
-- **CLion**
-- **PyCharm**
 - **Geany**
 - **STM32CubeIDE**
 - **VLC**
 - **GIMP**
 - **Pinta**
+
+##### JetBrains Toolbox: CLion/PyCharm
+
+- **File** --> **Settings**
+  - **Appearance & Behaviour** --> **New UI** --> Enable new UI
+  - **Tools** --> **Python Integrated Tools** --> **Docstrings** --> Google format
+  - **Plugins** --> **Nord**
+  - **Editor** --> **Font**
+    - Font: Fira code
+    - Font size: 12
+    - Line height: 1.2
 
 #### Other packages
 
