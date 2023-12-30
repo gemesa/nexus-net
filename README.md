@@ -91,11 +91,12 @@ See [router.md](router.md)
 - access:
   - http://chronos.lan or http://192.168.1.100
   - ssh (both key and pw auth enabled)
+- file server (SMB, FTP)
+  - XVR syncs CCTV data via FTP
 - syslog server
 - P2P file sharing server
-- surveillance server
-  - FTP server (XVR syncs CCTV data via FTP)
-  - **Surveillance Station** (access IP cams via ONVIF)
+- surveillance server (**Surveillance Station** - IP cams)
+- SMTP relay (scheduled email messages)
 
 #### Details
 
