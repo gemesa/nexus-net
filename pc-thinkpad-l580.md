@@ -63,16 +63,6 @@ backup-data /dev/disk/by-uuid/<UUID> <path to LUKS key> luks
 - set wallpaper
 - `sudo dnf upgrade --refresh`
 - check updates in **Software** as well (system updates for example)
-- copy ssh keys from backup to `~/.ssh/`
-- enable ssh-rsa keys
-  - ```
-    $ cat /home/gemesa/.ssh/config
-    Host *
-        PubkeyAcceptedKeyTypes=+ssh-rsa
-    ```
-  - https://www.reddit.com/r/Fedora/comments/jh9iyi/f33_openssh_no_mutual_signature_algorithm/
-  - https://confluence.atlassian.com/bitbucketserverkb/ssh-rsa-key-rejected-with-message-no-mutual-signature-algorithm-1026057701.html
-  - https://unix.stackexchange.com/questions/630446/ssh-in-fedora-33-error-sign-and-send-pubkey-no-mutual-signature-supported
 - configure Dash
   - pin **Terminal**
   - remove **Software**
@@ -114,11 +104,69 @@ backup-data /dev/disk/by-uuid/<UUID> <path to LUKS key> luks
   - install nord theme
     - https://github.com/arcticicestudio/nord-gnome-terminal
   - set font to fira code (size: 10) at **Terminal** --> **Preferences** --> **Profiles** --> **Nord** --> **Text**
-- `sudo dnf install neovim`
-  - copy `init.vim` from backup to `~/.config/nvim/`
+
+#### ssh
+
+- copy ssh keys from backup to `~/.ssh/`
+- enable ssh-rsa keys
+
+```
+$ nano /home/gemesa/.ssh/config
+$ cat /home/gemesa/.ssh/config
+Host *
+    PubkeyAcceptedKeyTypes=+ssh-rsa
+```
+
+- https://www.reddit.com/r/Fedora/comments/jh9iyi/f33_openssh_no_mutual_signature_algorithm/
+- https://confluence.atlassian.com/bitbucketserverkb/ssh-rsa-key-rejected-with-message-no-mutual-signature-algorithm-1026057701.html
+- https://unix.stackexchange.com/questions/630446/ssh-in-fedora-33-error-sign-and-send-pubkey-no-mutual-signature-supported
+
+#### nvim
+
+```
+$ sudo dnf install neovim
+$ nano ~/.config/nvim/init.vim
+$ cat ~/.config/nvim/init.vim
+set clipboard=unnamedplus
+
+autocmd BufNewFile,BufRead *.fns set syntax=sh
+autocmd BufNewFile,BufRead *.hook set syntax=sh
+
+set nocompatible
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+syntax enable
+
+colorscheme slate
+
+set number
+
+set expandtab
+set autoindent
+set softtabstop=4
+set shiftwidth=4
+set tabstop=4
+
+"Enable mouse click for nvim
+set mouse=a
+"Fix cursor replacement after closing nvim
+set guicursor=
+"Shift + Tab does inverse tab
+inoremap <S-Tab> <C-d>
+
+"See invisible characters
+"set list listchars=tab:>\ ,trail:+,eol:$
+set list listchars=tab:>\ ,trail:+
+
+"wrap to next line when end of line is reached
+set whichwrap+=<,>,[,]
+```
 
 #### Base apps
 
+Plain install:
 - **Beyond Compare**
 - **Docker**
 - **NormCap**
@@ -265,6 +313,7 @@ sudo crontab -e
 
 #### Optional apps
 
+Plain install:
 - **Geany**
 - **STM32CubeIDE**
 - **VLC**
