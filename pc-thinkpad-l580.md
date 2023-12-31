@@ -311,6 +311,19 @@ sudo crontab -e
     - https://blog.sergeantbiggs.net/posts/file-sharing-with-qemu-and-virt-manager/
     - https://nts.strzibny.name/how-to-set-up-shared-folders-in-virt-manager/
 
+##### git
+
+```
+$ gpg --import private.gpg
+$ gpg --list-secret-keys --keyid-format=long
+$ ssh-add ~/.ssh/id_ed25519_github
+$ git config --global user.name "Andras Gemes"
+$ git config --global user.email "andrasgemes@outlook.com"
+$ git config --global commit.gpgsign true
+$ git config --global user.signingkey <key ID>
+$ git config --global --list
+```
+
 #### Optional apps
 
 Plain install:
@@ -346,7 +359,7 @@ sudo dnf install tftp-server tftp
 sudo dnf install gpsbabel
 sudo dnf install make autoconf automake cmake ninja-build ccache gcc gcc-c++ kernel-devel
 sudo dnf install clang
-sudo dnf install git curl wget python3
+sudo dnf install curl wget python3
 sudo dnf install coreutils
 sudo dnf install gdb
 sudo dnf install minicom
