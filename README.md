@@ -147,3 +147,7 @@ See [xvr.md](xvr.md)
 #### Overview
 
 - Fedora
+
+#### Details
+
+See [pc-thinkpad-l580.md](pc-thinkpad-l580.md)
