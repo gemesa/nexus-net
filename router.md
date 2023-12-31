@@ -17,10 +17,10 @@ https://gemesa.dev/unbrick-your-tp-link-archer-c7-openwrt-router
 ### Generic configuration
 
 - access: http://192.168.1.1
-- set root pw
-- disable ssh pw auth
-- generate ssh keys and add public key
-- install LuCI stats
+- set root pw at **System** --> **Administration** --> **Router Password**
+- disable ssh pw auth at **System** --> **Administration** --> **SSH Access**
+- generate ssh keys and add public key at **System** --> **Administration** --> **SSH-Keys**
+- install LuCI stats at **System** --> **Software**
   - https://openwrt.org/docs/guide-user/luci/luci_app_statistics
 - set `TERM` (necessary for `vi` to work properly)
   - `touch .profile`
@@ -34,6 +34,7 @@ https://gemesa.dev/unbrick-your-tp-link-archer-c7-openwrt-router
 
 ### Wireless
 
+- ***Network** --> **Wireless**
 - SSID: Helios
 - SSID: Helios-5G
 - country code: HU
@@ -44,6 +45,7 @@ https://gemesa.dev/unbrick-your-tp-link-archer-c7-openwrt-router
 
 ### Static leases
 
+- **Network** --> **DHCP and DNS** --> **Static Leases**
 - chronos (Synology NAS) -> 192.168.1.100
 - Dahua XVR -> 192.168.1.101
 - vulcan (RPi backup NAS) -> 192.168.1.102
@@ -56,8 +58,8 @@ https://gemesa.dev/unbrick-your-tp-link-archer-c7-openwrt-router
 
 ### DNS
 
-- set hostname: helios --> access: http://helios.lan
-- set DNS server: 1.1.1.1
+- set hostname: helios at **System** --> **System**
+  - access: http://helios.lan
 - configure encrypted DNS
   - https://openwrt.org/docs/guide-user/services/dns/doh_dnsmasq_https-dns-proxy
   - install related LuCI UI package as well
