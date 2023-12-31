@@ -126,11 +126,12 @@ See [xvr.md](xvr.md)
 
 ---
 
-### HDCVI Camera
+### HDCVI Camera - [DH-HAC-HFW1200D-0360B-S4](https://www.dahuasecurity.com/asset/upload/download/DH-HAC-HFW1200D_Datasheet_20171127.pdf)
 
 #### Overview
 
-- TODO: add product link
+- 1080P
+- night vision
 
 ---
 
@@ -138,6 +139,8 @@ See [xvr.md](xvr.md)
 
 #### Overview
 
+- 1080P
+- night vision
 - connected to NAS **Surveillance Station** via ONVIF
 
 ---
