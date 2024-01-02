@@ -6,43 +6,43 @@ This repository is a snapshot of my home network setup.
 
 
 ```
-                      +-----------+
-                      | Internet  |
-                      +-----------+
-                            |
-                     +-------------+
-                     | ISP Router  |
-                     +-------------+
-                            |
-                       +---------+
-                       | Router  |
-                       +---------+
-                            |
-             +-----------------------------+
-             |                             |
-   +-------------------+         +-------------------+
-   |      Switch       |         |      Switch       |
-   +-------------------+         +-------------------+
-    |       |         |               |         |
- +-----+ +-----+ +---------+       +-----+   +-----+   +-----+
- | PC  | | RPi | | IP Cam  |       | XVR |   | NAS |---| UPS |
- +-----+ +-----+ +---------+       +-----+   +-----+   +-----+
-                                      |
-                     +-------------+  |  +-------------+
-                     | HDCVI Cam 0 |--+--| HDCVI Cam 1 |
-                     +-------------+  |  +-------------+
-                                      |
-                     +-------------+  |  +-------------+
-                     | HDCVI Cam 2 |--+--| HDCVI Cam 3 |
-                     +-------------+  |  +-------------+
-                                      |
-                     +-------------+  |  +-------------+
-                     | HDCVI Cam 4 |--+--| HDCVI Cam 5 |
-                     +-------------+  |  +-------------+
-                                      |
-                     +-------------+  |  +-------------+
-                     | HDCVI Cam 6 |--+--| HDCVI Cam 7 |
-                     +-------------+     +-------------+
+                            +-----------+
+                            | Internet  |
+                            +-----------+
+                                  |
+                           +-------------+
+                           | ISP Router  |
+                           +-------------+
+                                  |
+                             +---------+
+                             | Router  |
+                             +---------+
+                                  |
+              +---------------------------------------+
+              |                                       |
+   +---------------------+                 +---------------------+
+   |       Switch        |                 |       Switch        |
+   +---------------------+                 +---------------------+
+    |         |         |                        |         |
+ +-----+ +---------+ +-----+   +-------+      +-----+   +-----+   +-------+
+ | PC  | | IP Cam  | | RPi |---| UPS 0 |      | XVR |   | NAS |---| UPS 1 |
+ +-----+ +---------+ +-----+   +-------+      +-----+   +-----+   +-------+
+                        |                        |
+                     +-----+    +-------------+  |  +-------------+
+                     | EHD |    | HDCVI Cam 0 |--+--| HDCVI Cam 1 |
+                     +-----+    +-------------+  |  +-------------+
+                                                 |
+                                +-------------+  |  +-------------+
+                                | HDCVI Cam 2 |--+--| HDCVI Cam 3 |
+                                +-------------+  |  +-------------+
+                                                 |
+                                +-------------+  |  +-------------+
+                                | HDCVI Cam 4 |--+--| HDCVI Cam 5 |
+                                +-------------+  |  +-------------+
+                                                 |
+                                +-------------+  |  +-------------+
+                                | HDCVI Cam 6 |--+--| HDCVI Cam 7 |
+                                +-------------+     +-------------+
 ```
 
 ## Devices
@@ -105,7 +105,7 @@ See [nas.md](nas.md)
 
 ---
 
-### UPS - [APC Smart-UPS 750VA SmartConnect](https://www.apc.com/shop/hr/en/products/APC-Smart-UPS-Line-Interactive-750VA-Tower-230V-6x-IEC-C13-outlets-SmartConnect-Port-SmartSlot-AVR-LCD/P-SMT750IC)
+### UPS 1 - [APC Smart-UPS 750VA SmartConnect](https://www.apc.com/shop/hr/en/products/APC-Smart-UPS-Line-Interactive-750VA-Tower-230V-6x-IEC-C13-outlets-SmartConnect-Port-SmartSlot-AVR-LCD/P-SMT750IC)
 
 #### Overview
 
@@ -154,3 +154,34 @@ See [xvr.md](xvr.md)
 #### Details
 
 See [pc-thinkpad-l580.md](pc-thinkpad-l580.md)
+
+---
+
+### RPi - [Raspberry Pi 4 model B 4GB](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/)
+
+#### Overview
+
+- [Revolt Pi 4 Cool Box](https://malnapc.hu/revolt-pi-4-cool-box-grey?keyword=Revolt%20Pi%204%20Cool%20Box%20-%20Grey)
+- 32GB SD card
+- encrypted with [cryptmypi](https://github.com/unixabg/cryptmypi)
+- connected to EHD via USB
+
+#### Details
+
+See [rpi.md](rpi.md)
+
+---
+
+### UPS 0 - [Eaton 5SC500I](https://www.eaton.com/hu/hu-hu/skuPage.5SC500I.html)
+
+#### Overview
+
+- TODO: connect the RPi to the currently unused USB port
+
+---
+
+### EHD - [WD Elements Desktop Hard Drive](https://www.westerndigital.com/en-ap/products/external-drives/wd-elements-desktop-usb-3-0-hdd?sku=WDBBKG0020HBK-SESN)
+
+#### Overview
+
+- 4TB
