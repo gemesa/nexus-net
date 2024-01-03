@@ -27,7 +27,7 @@
   # export _IMAGEURL="https://downloads.raspberrypi.com/raspios_lite_armhf/images/raspios_lite_armhf-2021-05-28/2021-05-07-raspios-buster-armhf-lite.zip"
   # export _IMAGESHA="c5dad159a2775c687e9281b1a0e586f7471690ae28f2f2282c90e7d59f64273c"
   #
-  # TODO: check if Dropbear supports Ed25519
+  # currently only RSA keys are supported (no Ed25519 for example)
   # export _SSH_LOCAL_KEYFILE="$_USER_HOME/.ssh/id_rsa"
   #
   # export _ROOTPASSWD="<root pw>"
