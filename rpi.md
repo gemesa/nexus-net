@@ -49,6 +49,9 @@
   Cannot initialize device-mapper. Is dm_mod kernel module loaded?
   Cannot use device crypt, name is invalid or still in use.
   ```
+  refs:
+    - https://raspberrypi.stackexchange.com/questions/108375/raspbian-dm-mod-missing-after-mkinitramfs-on-luks-encrypted-partition
+    - https://unix.stackexchange.com/questions/327914/initramfs-luks-and-dm-mod-cant-boot-after-upgrade
 
 - run the script and go through the interactive installer:
   ```
