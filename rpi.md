@@ -183,6 +183,7 @@
   $ dos2unix backup-history.sh
   $ dos2unix check-for-upgrades.sh
   ```
+- copy `msg*.txt` to `/home/pi`
 - crontab
   ```
   $ sudo crontab -e
