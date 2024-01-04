@@ -164,7 +164,11 @@ See [pc-thinkpad-l580.md](pc-thinkpad-l580.md)
 - [Revolt Pi 4 Cool Box](https://malnapc.hu/revolt-pi-4-cool-box-grey?keyword=Revolt%20Pi%204%20Cool%20Box%20-%20Grey)
 - 32GB SD card
 - encrypted with [cryptmypi](https://github.com/unixabg/cryptmypi)
+  - image: [Buster](https://downloads.raspberrypi.com/raspios_lite_armhf/images/raspios_lite_armhf-2021-05-28)
 - connected to EHD via USB
+- backup file server
+- access: ssh (key auth enabled, pw auth disabled)
+- mail server (SMTP relay)
 
 #### Details
 
