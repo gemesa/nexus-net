@@ -87,7 +87,15 @@
 
 ### Config
 
-- `sudo apt update && sudo apt upgrade -y`
+- upgrade
+  ```
+  $ sudo apt update && sudo apt upgrade -y
+  # check kernel version
+  ls /lib/modules
+  update-initramfs -u
+  # replace "5.10.103-v7l+" with the proper version, refer to the output of the previous ls command
+  $ sudo mkinitramfs -o /boot/initramfs.gz 5.10.103-v7l+
+  ```
 - `raspi-config` --> set timezone
   - alternative: https://raspberrypi.stackexchange.com/questions/87164/setting-timezone-non-interactively
 - use pi user instead of root
