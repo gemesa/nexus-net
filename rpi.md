@@ -9,6 +9,7 @@
 
   ```
   $ git clone https://github.com/unixabg/cryptmypi
+  # head: https://github.com/unixabg/cryptmypi/commit/52227dfaf905ace65fa8555fb3999e9a75b299f5
   $ cd cryptmypi
   $ nano examples/pios-encrypted-basic-dropbear/cryptmypi.conf
   # edit the following lines:
