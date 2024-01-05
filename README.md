@@ -1,6 +1,6 @@
 # nexus-net
 
-This repository is a snapshot of my home network setup.
+This repository is a snapshot of my home network setup. There is also a second, private repo containing the files with sensitive information.
 
 ## Network topology
 
