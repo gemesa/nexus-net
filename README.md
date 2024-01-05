@@ -166,7 +166,7 @@ See [pc-thinkpad-l580.md](pc-thinkpad-l580.md)
 - encrypted with [cryptmypi](https://github.com/unixabg/cryptmypi)
   - image: [Buster](https://downloads.raspberrypi.com/raspios_lite_armhf/images/raspios_lite_armhf-2021-05-28)
 - connected to EHD via USB
-- backup file server
+- backup file server (syncs data from NAS via ssh)
 - access: ssh (key auth enabled, pw auth disabled)
 - mail server (SMTP relay)
 
