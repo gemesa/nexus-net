@@ -180,6 +180,7 @@ Plain install:
 - **Postman**
 - **Bless Hex Editor**
 - **LibreOffice**
+- **Authy**
 
 ##### Firefox
 
