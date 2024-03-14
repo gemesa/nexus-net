@@ -308,6 +308,7 @@ sudo crontab -e
 
 ##### Virtual Machine Manager
 
+- install from **Software**
 - https://fedoramagazine.org/full-virtualization-system-on-fedora-workstation-30/
 - create Ubuntu 22.04 VM
     - **Virtual Machine Manager** --> Ubuntu VM --> **Open** --> **Show virtual hardware details** --> **Video** --> select VGA or Virtio (disable 3D acceleration)
