@@ -289,6 +289,7 @@ sudo crontab -e
 
 ##### VS Code
 
+- https://code.visualstudio.com/docs/setup/linux
 - **File** --> **Preferences** --> **Settings** --> **Text Editor**
   - --> **Font**
     - Font size: 12
