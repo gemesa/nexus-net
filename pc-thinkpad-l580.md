@@ -184,11 +184,14 @@ Plain install:
 
 ##### Firefox
 
+- sign in (Mozilla account)
+  - syncs bookmarks, history etc. and the following settings
+
+###### Settings (should be synced automatically)
+
 - enable dark theme
 - set Google to english
 - disable Firefox "PW manager" at **Firefox** --> **Settings** --> **Privacy & Security** --> **Logins and Passwords**
-- sign in (Mozilla account)
-  - syncs bookmarks, history etc.
 - enable dark pdfs
   - https://stackoverflow.com/questions/61814564/how-can-i-enable-dark-mode-when-viewing-a-pdf-file-in-firefox (see answer from Alfian Hamdani)
 - extensions:
