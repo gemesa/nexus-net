@@ -320,7 +320,8 @@ sudo crontab -e
 $ gpg --import private.gpg
 $ gpg --list-secret-keys --keyid-format=long
 $ nano ~/.ssh/config
-$ # add "IdentityFile ~/.ssh/id_ed25519_github" to ~/.ssh/config
+$ cat ~/.ssh/config
+IdentityFile ~/.ssh/id_ed25519_github
 $ sudo chmod 600 ~/.ssh/config
 $ git config --global user.name "Andras Gemes"
 $ git config --global user.email "andrasgemes@outlook.com"
