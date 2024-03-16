@@ -17,7 +17,7 @@ Refer to [pc-thinkpad-l580.md](pc-thinkpad-l580.md#sw): but only create 1 partit
 ```
 $ cat /etc/fstab
 ...
-/dev/mapper/hdd /mnt/hdd ext4 defaults 0 2
+/dev/mapper/hdd /mnt/hdd ext4 defaults,nofail 0 2
 ```
 
 ```

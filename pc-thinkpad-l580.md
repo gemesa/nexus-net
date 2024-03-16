@@ -51,8 +51,8 @@
 ```
 $ cat /etc/fstab
 ...
-/dev/mapper/backup-config /media/backup-config ext4 defaults 0 2
-/dev/mapper/backup-data /media/backup-data ext4 defaults 0 2
+/dev/mapper/backup-config /media/backup-config ext4 defaults,nofail 0 2
+/dev/mapper/backup-data /media/backup-data ext4 defaults,nofail 0 2
 ```
 
 ```
