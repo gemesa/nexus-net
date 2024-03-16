@@ -24,7 +24,7 @@
 
 ##### SW
 
-- format and create 1 partition
+- format and create 2 partitions: config (97GB), data (31GB)
   - `sudo fdisk -l`
   - `sudo fdisk /dev/sda` --> replace `/dev/sda` with the correct device
     - `m`

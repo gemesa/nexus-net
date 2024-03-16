@@ -12,7 +12,7 @@ Refer to [pc-thinkpad-l580.md](pc-thinkpad-l580.md#install)
 
 ##### SW
 
-Refer to [pc-thinkpad-l580.md](pc-thinkpad-l580.md#sw)
+Refer to [pc-thinkpad-l580.md](pc-thinkpad-l580.md#sw): but only create 1 partition
 
 ```
 $ cat /etc/fstab
