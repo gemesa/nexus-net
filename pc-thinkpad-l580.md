@@ -201,6 +201,7 @@ Plain install:
 - **Bless Hex Editor**
 - **LibreOffice**
 - **Authy**
+- **dconf Editor**
 
 ##### Firefox
 
