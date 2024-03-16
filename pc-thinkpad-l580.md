@@ -206,6 +206,7 @@ Plain install:
 
 - sign in (Mozilla account)
   - syncs bookmarks, history etc. and the following settings
+- pin extensions to toolbar
 
 ###### Settings (should be synced automatically)
 
