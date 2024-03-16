@@ -157,6 +157,18 @@ See [pc-thinkpad-l580.md](pc-thinkpad-l580.md)
 
 ---
 
+### PC - [MINISFORUM X500 5700G](https://www.amazon.com/MINISFORUM-Elitemini-X500-Computer-Graphics/dp/B09KTBG275)
+
+#### Overview
+
+- Fedora
+
+#### Details
+
+See [pc-minisforum-x500-5700g.md](pc-minisforum-x500-5700g.md)
+
+---
+
 ### RPi - [Raspberry Pi 4 model B 4GB](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/)
 
 #### Overview

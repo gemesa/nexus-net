@@ -24,21 +24,29 @@
 
 ##### SW
 
-- format and create 2 partitions: config (97GB), data (31GB)
+- format and create 1 partition
   - `sudo fdisk -l`
-  - `sudo fdisk /dev/<device>`
+  - `sudo fdisk /dev/sda` --> replace `/dev/sda` with the correct device
     - `m`
     - `n`
     - `p`
     - `w`
-- encrypt it with LUKS
+  - `sudo blkid /dev/sda1`
+    - make a note of the uuid
+- encrypt, create filesystem and mountpoint
+  - `sudo cryptsetup luksFormat --type luks2 /dev/sda1`
+  - `dd bs=512 count=4 if=/dev/random of=luks-hdd.key`
+  - `sudo cryptsetup luksOpen /dev/sda1 hdd`
+  - `sudo cryptsetup luksAddKey /dev/sda1 luks-hdd.key`
+  - `sudo cryptsetup luksClose hdd`
+  - `sudo cryptsetup luksOpen /dev/sda1 hdd --key-file=luks-hdd.key`
+  - `sudo mkfs.ext4 /dev/mapper/hdd`
+  - `sudo mkdir /mnt/hdd`
+  - `sudo mount /dev/mapper/hdd /mnt/hdd`
+  - `df -H /mnt/hdd`
+  - `sudo umount /mnt/hdd`
+  - `sudo cryptsetup luksClose hdd`
 - use `fstab` and `crypttab` to mount and unlock it automatically
-- https://www.digitalocean.com/community/tutorials/create-a-partition-in-linux
-- https://www.cyberciti.biz/security/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/
-- https://www.redhat.com/sysadmin/disk-encryption-luks
-- https://www.cyberciti.biz/hardware/cryptsetup-add-enable-luks-disk-encryption-keyfile-linux/
-- https://www.howtoforge.com/automatically-unlock-luks-encrypted-drives-with-a-keyfile
-- https://unix.stackexchange.com/questions/658/linux-how-can-i-view-all-uuids-for-all-available-disks-on-my-system
 
 ```
 $ cat /etc/fstab
@@ -53,6 +61,15 @@ $ cat /etc/crypttab
 backup-config /dev/disk/by-uuid/<UUID> <path to LUKS key> luks
 backup-data /dev/disk/by-uuid/<UUID> <path to LUKS key> luks
 ```
+###### References
+
+- https://www.digitalocean.com/community/tutorials/create-a-partition-in-linux
+- https://www.cyberciti.biz/security/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/
+- https://www.redhat.com/sysadmin/disk-encryption-luks
+- https://www.cyberciti.biz/hardware/cryptsetup-add-enable-luks-disk-encryption-keyfile-linux/
+- https://www.howtoforge.com/automatically-unlock-luks-encrypted-drives-with-a-keyfile
+- https://unix.stackexchange.com/questions/658/linux-how-can-i-view-all-uuids-for-all-available-disks-on-my-system
+- https://forums.linuxmint.com/viewtopic.php?t=352620
 
 ### Setup
 
