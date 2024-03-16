@@ -196,7 +196,6 @@ Plain install:
 - **Remmina**
 - **Raspberry Pi Imager**
 - **GitKraken**
-- **VirtualBox**
 - **Burp Suite**
 - **Postman**
 - **Bless Hex Editor**
@@ -338,6 +337,18 @@ sudo crontab -e
 - set up shared folder
     - https://blog.sergeantbiggs.net/posts/file-sharing-with-qemu-and-virt-manager/
     - https://nts.strzibny.name/how-to-set-up-shared-folders-in-virt-manager/
+
+##### VirtualBox
+
+- prerequisites
+  - `sudo dnf install gcc make perl kernel-devel`
+- https://www.virtualbox.org/wiki/Linux_Downloads
+  - refer to chapter "RPM-based Linux distributions" and install from the repo
+  - download `oracle_vbox_2016.asc`
+  - `sudo rpm --import oracle_vbox_2016.asc`
+  - add the [Fedora repo file](https://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo) to `/etc/yum.repos.d/`
+  - `sudo dnf install VirtualBox-7.0` (install latest major version)
+  - `sudo usermod -a -G vboxusers $USER`
 
 ##### git
 
