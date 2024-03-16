@@ -98,7 +98,11 @@ backup-data /dev/disk/by-uuid/<UUID> <path to LUKS key> luks
     - https://www.reddit.com/r/Fedora/comments/bc9pyz/why_is_dnf_so_excruciatingly_slow/
   - `defaultyes=True`
     - https://www.reddit.com/r/Fedora/comments/rpttto/make_y_the_default_action_in_dnf/
-- install **Gnome Tweaks**
+- install **Gnome Tweaks** from **Software**
+  - install Adwaita-dark theme
+    - `sudo dnf install gnome-themes-extra`
+  - **Tweaks** --> **Appearance** --> **Styles** --> **Legacy Applications**
+    - set Adwaita-dark
   - **Tweaks** --> **Windows** --> **Titlebar Buttons**
     - check "Maximize"
     - check "Minimize"
