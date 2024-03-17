@@ -169,6 +169,18 @@ See [pc-minisforum-x500-5700g.md](pc-minisforum-x500-5700g.md)
 
 ---
 
+### Phone - [Galaxy S10e 128 GB](https://www.samsung.com/hu/support/model/SM-G970FZWDXEH)
+
+#### Overview
+
+- Stock firmware
+
+#### Details
+
+See [phone-galaxy-s10e.md](phone-galaxy-s10e.md)
+
+---
+
 ### RPi - [Raspberry Pi 4 model B 4GB](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/)
 
 #### Overview
