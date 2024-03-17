@@ -200,7 +200,6 @@ Plain install:
 - **Postman**
 - **Bless Hex Editor**
 - **LibreOffice**
-- **Authy**
 - **dconf Editor**
 
 ##### Firefox
