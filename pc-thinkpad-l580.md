@@ -323,6 +323,8 @@ sudo crontab -e
 - **Extensions**
   - **Even Better TOML**
   - **rust-analyzer**
+  - **Error Lens**
+  - **crates**
   - **x86 and x86_64 Assembly**
   - **CodeLLDB**
   - **Nord**
