@@ -325,6 +325,7 @@ sudo crontab -e
   - **rust-analyzer**
   - **Error Lens**
   - **crates**
+  - **Markdown PDF**
   - **x86 and x86_64 Assembly**
   - **CodeLLDB**
   - **Nord**
