@@ -370,6 +370,20 @@ $ git config --global user.signingkey <key ID>
 $ git config --global --list
 ```
 
+##### yazi
+
+```
+$ cargo install --locked --git https://github.com/sxyazi/yazi.git yazi-fm yazi-cli
+# replace v3.2.1 with the latest release
+$ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/NerdFontsSymbolsOnly.tar.xz
+$ tar -xf NerdFontsSymbolsOnly.tar.xz
+$ mkdir -p ~/.local/share/fonts
+$ mv *.ttf ~/.local/share/fonts/
+$ fc-cache -fv
+$ fc-list | grep -i nerd
+# restart terminal
+```
+
 #### Optional apps
 
 Plain install:
