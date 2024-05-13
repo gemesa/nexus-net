@@ -384,6 +384,14 @@ $ fc-list | grep -i nerd
 # restart terminal
 ```
 
+how to change font in WSL:
+- download on the host: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip
+- double click on FiraCodeNerdFont-Regular.ttf and install it
+- right click in WSL --> Settings --> Profiles --> Default
+  - --> color scheme: one half dark
+  - --> font face: firacode nerd font
+  - --> font size: 10
+
 #### Optional apps
 
 Plain install:
