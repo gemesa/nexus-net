@@ -400,6 +400,7 @@ Plain install:
 - **VLC**
 - **GIMP**
 - **Pinta**
+- **Foliate**
 
 ##### JetBrains Toolbox: CLion/PyCharm
 
