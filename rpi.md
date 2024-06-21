@@ -60,8 +60,12 @@
   ```
 
 - insert the SD card into the RPi and then power it on
-- unlock the RPi (this might not work for the first time for some reason, do a power reset in this case and try again)
+- [enable RSA SSH keys](https://www.reddit.com/r/Fedora/comments/jhxbdh/no_ssh_public_key_auth_after_upgrade_to_fedora_33/) and unlock the RPi (this might not work for the first time for some reason, do a power reset in this case and try again)
   ```
+  $ nano ~/.ssh/config
+  $ cat ~/.ssh/config
+  Host *
+      PubkeyAcceptedKeyTypes=+ssh-rsa
   $ ssh root@192.168.1.102 -i ~/.ssh/id_rsa -p 2222
   Enter passphrase for /dev/disk/by-uuid/<UUID>: 
   Connection to 192.168.1.102 closed.
