@@ -193,6 +193,7 @@ Plain install:
 - **NormCap**
 - **Wireshark**
 - **Ghidra**
+- **Binary Ninja**
 - **Remmina**
 - **Raspberry Pi Imager**
 - **GitKraken**
@@ -201,6 +202,7 @@ Plain install:
 - **Bless Hex Editor**
 - **LibreOffice**
 - **dconf Editor**
+- **NordVPN**
 
 ##### Firefox
 
