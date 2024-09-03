@@ -8,11 +8,11 @@ https://openwrt.org/toh/netgear/r7800
 
 #### ASUS RT-AX53U
 
-https://gemesa.dev/flash-openwrt-on-your-asus-rt-ax53u-router
+https://shadowshell.io/flash-openwrt-on-your-asus-rt-ax53u-router
 
 #### TP-Link Archer C7
 
-https://gemesa.dev/unbrick-your-tp-link-archer-c7-openwrt-router
+https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
 
 ### Generic configuration
 
