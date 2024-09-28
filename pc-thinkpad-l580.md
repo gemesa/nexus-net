@@ -24,7 +24,7 @@
 
 ##### SW
 
-- format and create 2 partitions: config (97GB), data (31GB)
+- format and create a partition
   - `sudo fdisk -l`
   - `sudo fdisk /dev/sda` --> replace `/dev/sda` with the correct device
     - `m`
@@ -51,15 +51,13 @@
 ```
 $ cat /etc/fstab
 ...
-/dev/mapper/backup-config /media/backup-config ext4 defaults,nofail 0 2
-/dev/mapper/backup-data /media/backup-data ext4 defaults,nofail 0 2
+/dev/mapper/nvme2 /mnt/nvme2 ext4 defaults,nofail 0 2
 ```
 
 ```
 $ cat /etc/crypttab
 ...
-backup-config /dev/disk/by-uuid/<UUID> <path to LUKS key> luks
-backup-data /dev/disk/by-uuid/<UUID> <path to LUKS key> luks
+nvme2 /dev/disk/by-uuid/<UUID> <path to LUKS key> luks,nofail
 ```
 ###### References
 
@@ -142,49 +140,6 @@ Host *
 - https://confluence.atlassian.com/bitbucketserverkb/ssh-rsa-key-rejected-with-message-no-mutual-signature-algorithm-1026057701.html
 - https://unix.stackexchange.com/questions/630446/ssh-in-fedora-33-error-sign-and-send-pubkey-no-mutual-signature-supported
 
-#### nvim
-
-```
-$ sudo dnf install neovim
-$ nano ~/.config/nvim/init.vim
-$ cat ~/.config/nvim/init.vim
-set clipboard=unnamedplus
-
-autocmd BufNewFile,BufRead *.fns set syntax=sh
-autocmd BufNewFile,BufRead *.hook set syntax=sh
-
-set nocompatible
-if (has("termguicolors"))
-  set termguicolors
-endif
-
-syntax enable
-
-colorscheme slate
-
-set number
-
-set expandtab
-set autoindent
-set softtabstop=4
-set shiftwidth=4
-set tabstop=4
-
-"Enable mouse click for nvim
-set mouse=a
-"Fix cursor replacement after closing nvim
-set guicursor=
-"Shift + Tab does inverse tab
-inoremap <S-Tab> <C-d>
-
-"See invisible characters
-"set list listchars=tab:>\ ,trail:+,eol:$
-set list listchars=tab:>\ ,trail:+
-
-"wrap to next line when end of line is reached
-set whichwrap+=<,>,[,]
-```
-
 #### Base apps
 
 Plain install:
@@ -201,7 +156,6 @@ Plain install:
 - **Postman**
 - **Bless Hex Editor**
 - **LibreOffice**
-- **dconf Editor**
 - **NordVPN**
 
 ##### Firefox
@@ -266,52 +220,6 @@ sudo wg-quick down l580
 - https://unix.stackexchange.com/questions/206415/sending-files-over-samba-with-command-line
 - https://help.ubuntu.com/community/Samba/SambaClientGuide
 - https://unix.stackexchange.com/questions/285941/smbclient-asking-for-password
-
-##### Timeshift
-
-`sudo dnf install timeshift`
-
-- **Timeshift** --> **Settings** --> **Type**
-  - rsync
-- **Timeshift** --> **Settings** --> **Location**
-  - nvme1n1p1/dm-1 (97GB)
-- **Timeshift** --> **Settings** --> **Schedule**
-  - boot, keep 3
-- **Timeshift** --> **Settings** --> **Filters**
-  - `/home/**`
-  - `/var/lib/libvirt/**`
-  - `/root/**`
-
-##### Borg
-
-`sudo dnf install borgbackup`
-
-use the script from https://borgbackup.readthedocs.io/en/stable/quickstart.html#automating-backups with some modifications:
-
-```
-...
-export BORG_REPO=/media/backup-data/borg
-...
-#export BORG_PASSPHRASE='XYZl0ngandsecurepa_55_phrasea&&123'
-...
-    --exclude 'home/*/.cache/*'             \
-    --exclude 'home/*/.mozilla/*'           \
-    --exclude 'root/.cache/*'               \
-    --exclude 'home/*/.local/share/Trash/*' \
-    --exclude '*.iso'                       \
-    --exlcude '*.zip'                       \
-    --exclude 'home/*/git-repos/*'          \
-                                            \
-    ::'{hostname}-{now}'                    \
-    /home                                   \
-    /root                                   \
-    /var/log
-...
-```
-```
-sudo crontab -e
-/30 * * * * <path to borg.sh> >> <path to borg.log> 2>&1
-```
 
 ##### VS Code
 
