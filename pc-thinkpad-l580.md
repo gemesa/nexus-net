@@ -151,9 +151,6 @@ Plain install:
 - **Binary Ninja**
 - **Remmina**
 - **Raspberry Pi Imager**
-- **GitKraken**
-- **Burp Suite**
-- **Postman**
 - **Bless Hex Editor**
 - **LibreOffice**
 - **NordVPN**
@@ -326,33 +323,7 @@ Plain install:
 #### Other packages
 
 ```
-sudo dnf install valgrind
-sudo dnf install bmon
-sudo dnf install nmap
-sudo dnf install p0f
-sudo dnf install hashcat
-sudo dnf install aircrack-ng
-sudo dnf install shellcheck
-sudo dnf install shfmt
-sudo dnf install tftp-server tftp
-sudo dnf install gpsbabel
-sudo dnf install make autoconf automake cmake ninja-build ccache gcc gcc-c++ kernel-devel
-sudo dnf install clang
-sudo dnf install curl wget python3
-sudo dnf install coreutils
-sudo dnf install gdb
-sudo dnf install minicom
-sudo dnf install xfreerdp
-sudo dnf install hydra
-sudo dnf install htop
-sudo dnf install upx
-sudo dnf install hexedit
-sudo dnf install nasm
-sudo dnf install gobuster
-sudo dnf install mingw64-gcc
-sudo dnf install strace
-sudo dnf install musl-tools
-sudo dnf install pandoc
+sudo dnf install valgrind bmon nmap p0f hashcat aircrack-ng shellcheck shfmt tftp-server tftp gpsbabel make autoconf automake cmake ninja-build ccache gcc gcc-c++ kernel-devel clang curl wget python3 coreutils gdb minicom xfreerdp hydra htop upx hexedit nasm gobuster mingw64-gcc strace musl-gcc pandoc
 ```
 
 #### Manual installation
