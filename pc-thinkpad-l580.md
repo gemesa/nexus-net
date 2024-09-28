@@ -326,7 +326,7 @@ sudo crontab -e
   - **Even Better TOML**
   - **rust-analyzer**
   - **Error Lens**
-  - **crates**
+  - **Dependi**
   - **Markdown PDF**
   - **x86 and x86_64 Assembly**
   - **CodeLLDB**
