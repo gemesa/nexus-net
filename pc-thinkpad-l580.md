@@ -271,7 +271,7 @@ $ cat ~/.ssh/config
 IdentityFile ~/.ssh/id_ed25519_github
 $ sudo chmod 600 ~/.ssh/config
 $ git config --global user.name "Andras Gemes"
-$ git config --global user.email "andrasgemes@outlook.com"
+$ git config --global user.email "gemesa@protonmail.com"
 $ git config --global commit.gpgsign true
 $ git config --global user.signingkey <key ID>
 $ git config --global --list
