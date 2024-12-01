@@ -34,7 +34,7 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
 
 ### Wireless
 
-- ***Network** --> **Wireless**
+- **Network** --> **Wireless**
 - SSID: Helios
 - SSID: Helios-5G
 - country code: HU
