@@ -148,10 +148,11 @@ Plain install:
 - **NormCap**
 - **Wireshark**
 - **Ghidra**
-- **Binary Ninja**
 - **Remmina**
 - **Raspberry Pi Imager**
 - **Bless Hex Editor**
+- **VS Code**
+- **Virtualbox**
 - **LibreOffice**
 - **NordVPN**
 
