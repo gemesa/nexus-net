@@ -144,17 +144,17 @@ Host *
 
 Plain install:
 - **Beyond Compare**
-- **Docker**
-- **NormCap**
-- **Wireshark**
-- **Ghidra**
-- **Remmina**
-- **Raspberry Pi Imager**
 - **Bless Hex Editor**
-- **VS Code**
-- **Virtualbox**
+- **Docker**
+- **Ghidra**
 - **LibreOffice**
 - **NordVPN**
+- **NormCap**
+- **Raspberry Pi Imager**
+- **Remmina**
+- **VirtualBox**
+- **VS Code**
+- **Wireshark**
 
 ##### Firefox
 
@@ -303,12 +303,11 @@ how to change font in WSL:
 #### Optional apps
 
 Plain install:
+- **Foliate**
 - **Geany**
-- **STM32CubeIDE**
-- **VLC**
 - **GIMP**
 - **Pinta**
-- **Foliate**
+- **VLC**
 
 ##### JetBrains Toolbox: CLion/PyCharm
 
