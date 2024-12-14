@@ -39,7 +39,7 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
       - `usbutils`
       - `luci-app-statistics`
 
-## Network
+### Network
 
 - **Network** --> **Firewall** --> **General Settings**
   - **Drop invalid packets**: enable
