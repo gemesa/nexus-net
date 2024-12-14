@@ -27,15 +27,17 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
   - --> **SSH-Keys**
     - generate ssh keys and add public key
     - `ssh-keygen -t ed25519`
-- **System** --> **Software**
-  - run **Update lists...**
-  - install packages
-    - `nano`
-    - `fdisk`
-    - `lsblk`
-    - `pciutils`
-    - `usbutils`
-    - `luci-app-statistics`
+  - --> **System**
+    - **Timezone**
+  - **Software**
+    - run **Update lists...**
+    - install packages
+      - `nano`
+      - `fdisk`
+      - `lsblk`
+      - `pciutils`
+      - `usbutils`
+      - `luci-app-statistics`
 
 ## Network
 
@@ -63,9 +65,21 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
 
 ### syslog
 
-- syslog server is running on NAS
-- https://openwrt.org/docs/guide-user/base-system/log.essentials
-- https://forum.openwrt.org/t/solved-openwrt-is-not-sending-syslog-messages-to-external-syslog-server/77078
+- syslog server is running on [NAS](https://github.com/gemesa/nexus-net/blob/main/nas.md?plain=1#L181)
+- TLDR
+  ```
+  $ nano /etc/config/system
+  $ cat /etc/config/system
+  config system
+  ...
+    option log_ip <destination IP>
+    option log_port <destination port>
+    option log_proto <tcp or udp>
+  $ /etc/init.d/log restart
+  ```
+- references
+  - https://openwrt.org/docs/guide-user/base-system/log.essentials#network_logging
+  - https://forum.openwrt.org/t/solved-openwrt-is-not-sending-syslog-messages-to-external-syslog-server/77078/4
 
 ### DNS
 
