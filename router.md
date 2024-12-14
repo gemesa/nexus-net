@@ -17,20 +17,31 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
 ### Generic configuration
 
 - access: http://192.168.1.1
-- set root pw at **System** --> **Administration** --> **Router Password**
-- disable ssh pw auth at **System** --> **Administration** --> **SSH Access**
-- generate ssh keys and add public key at **System** --> **Administration** --> **SSH-Keys**
-- install LuCI stats at **System** --> **Software**
-  - https://openwrt.org/docs/guide-user/luci/luci_app_statistics
-- set `TERM` (necessary for `vi` to work properly)
-  - `touch .profile`
-  - `echo "export TERM=xterm" > .profile`
-  - `echo "echo \"TERM set to xterm\"" > .profile`
-  - https://openwrt.org/docs/guide-user/base-system/user.beginner.cli
-- general setup guides:
-  - https://www.youtube.com/watch?v=uhJF0XmVhME
-  - https://www.reddit.com/r/openwrt/comments/17aanhj/anything_to_do_after_flashing_openwrt_for_a/
-  - https://forum.openwrt.org/t/change-lan-ip-from-luci-do-not-apply/63048?fbclid=IwAR0pwt3YwD07T4WZ57X-hbE68Cu1Bd_Z1sr_DOY_01jzpvb_QS28LvJzRF4
+- **System** --> **Administration**
+  - --> **Router Password**: set root pw
+  - --> **HTTP(S) Access**
+    - **Redirect to HTTPS**: enable
+  - --> **SSH Access**
+    - **Interface**: LAN
+    - **Password authentication**: disable
+  - --> **SSH-Keys**
+    - generate ssh keys and add public key
+    - `ssh-keygen -t ed25519`
+- **System** --> **Software**
+  - run **Update lists...**
+  - install packages
+    - `nano`
+    - `fdisk`
+    - `lsblk`
+    - `pciutils`
+    - `usbutils`
+    - `luci-app-statistics`
+
+## Network
+
+- **Network** --> **Firewall** --> **General Settings**
+  - **Drop invalid packets**: enable
+  - **Software flow offloading**: enable
 
 ### Wireless
 
@@ -38,9 +49,9 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
 - SSID: Helios
 - SSID: Helios-5G
 - country code: HU
-- encryption: WPA2-PSK (WPA3-SAE would be better but some older HW does not support it)
-- enable krack countermeasures
-- TODO: enable and test 802.11w MFP (some clients may not support this)
+- encryption: WPA2-PSK/WPA3-SAE Mixed mode
+- enable KRACK countermeasures
+- *experimental:* enable 802.11w MFP (some clients may not support this)
     - https://forum.openwrt.org/t/i-need-help-how-to-prevent-wifi-from-dissociation-attack/85229
 
 ### Static leases
