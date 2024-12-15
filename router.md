@@ -106,7 +106,7 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
 - TLDR
   - install `ddns-scripts`
   - install `luci-app-ddns`
-  - **Services** --> **Dynamic DNS** --> edit `myddns_ipv4`
+  - **Services** --> **Dynamic DNS** --> Edit `myddns_ipv4`
     - **Basic Settings**
       - enable
       - Lookup Hostname
@@ -124,26 +124,51 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
 
 ### WireGuard server
 
-#### Install WG
+- configure port forwarding (51820) when behind a NAT
 
-- https://www.youtube.com/watch?v=Bo2AsW4BMOo
-- https://openwrt.org/docs/guide-user/services/vpn/wireguard/server
-- TODO: configure WG logging
+#### Install WG and add peers
+
+- install `wireguard-tools`
+- install `luci-proto-wireguard`
+- follow https://openwrt.org/docs/guide-user/services/vpn/wireguard/server
+  - when adding peers:
+    - generate new keys for each peer
+    - add description
+      `uci set network.wgclient.description="peer0"`
+    - route allowed IPs
+      `uci set network.wgclient.route_allowed_ips="1"`
+    - increment allowed IPs
+      `uci add_list network.wgclient.allowed_ips="${VPN_ADDR%.*}.2/32"`
+      `uci add_list network.wgclient.allowed_ips="${VPN_ADDR6%:*}:2/128"`
 
 #### Create client configs
 
-- https://serverfault.com/questions/1058255/configure-dns-routing-in-wireguard
-- https://www.reddit.com/r/WireGuard/comments/eeaysn/creating_config_file_for_windows_clients_to_import/
-- https://upcloud.com/community/tutorials/get-started-wireguard-vpn/
-- set DNS server on client side to avoid DNS leak
-  - https://forum.openwrt.org/t/solved-wireguard-dns-leak-on-the-mobile-device/14640/3
-- configure full tunnel
-  - server config: `route allowed ips`
-  - client config: `allowed ips: 0.0.0.0/0, ::/0`
-  - https://www.reddit.com/r/WireGuard/comments/k7yb0f/need_help_split_tunnel_works_full_tunnel_doesnt/
-- utilize preshared keys for maximum security
-  - https://wiki.archlinux.org/title/WireGuard
-- configure ipv6 address
+**TLDR example**
+
+```
+[Interface]
+Address = 192.168.9.4/32, fdf1:e8a1:8d3f:9::4/128
+PrivateKey = <content of wgclient.key>
+DNS = 192.168.9.1
+[Peer]
+PublicKey = <content of wgserver.pub>
+PresharedKey = <content of wgclient.psk>
+AllowedIPs = 0.0.0.0/0, ::/0
+Endpoint = <DDNS hostname>:51820
+```
+
+- references
+  - https://serverfault.com/questions/1058255/configure-dns-routing-in-wireguard
+  - https://www.reddit.com/r/WireGuard/comments/eeaysn/creating_config_file_for_windows_clients_to_import/
+  - https://upcloud.com/community/tutorials/get-started-wireguard-vpn/
+  - set DNS server on client side to avoid DNS leak
+    - https://forum.openwrt.org/t/solved-wireguard-dns-leak-on-the-mobile-device/14640/3
+  - configure full tunnel
+    - server config: `route allowed ips`
+    - client config: `allowed ips: 0.0.0.0/0, ::/0`
+    - https://www.reddit.com/r/WireGuard/comments/k7yb0f/need_help_split_tunnel_works_full_tunnel_doesnt/
+  - generate a pre-shared key to add an additional layer of symmetric-key cryptography to be mixed into the already existing public-key cryptography, for post-quantum resistance
+    - https://wiki.archlinux.org/title/WireGuard
 
 ### Security
 
