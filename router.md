@@ -208,6 +208,9 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
         - ESSID: Helios-IOT
         - Network: `iot`
         - refer to [Wireless](#wireless) for the remaining settings
+  - XVR
+    - change the IP to 172.16.0.2
+    - remove the `Dahua XVR -> 192.168.1.101` static lease
 - references
   - https://www.youtube.com/watch?v=UvniZs8q3eU
 
