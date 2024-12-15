@@ -42,9 +42,12 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
 
 ### Network
 
-- **Network** --> **Firewall** --> **General Settings**
-  - **Drop invalid packets**: enable
-  - **Software flow offloading**: enable
+- **Network**
+  - --> **Firewall** --> **General Settings**
+    - **Drop invalid packets**: enable
+    - **Software flow offloading**: enable
+  - --> **Interfaces**
+    - *optional:* edit `lan` IPv4 address (192.168.2.1 / 192.168.3.1 / ...)
 
 ### Wireless
 
@@ -91,16 +94,33 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
   - references
     - https://openwrt.org/docs/guide-user/services/dns/doh_dnsmasq_https-dns-proxy#command-line_instructions
     - https://openwrt.org/docs/guide-user/services/dns/doh_dnsmasq_https-dns-proxy#web_interface
-  - *optional:* enforce DNS hijacking on all interfaces not just `lan` (which is already handled by `https-dns-proxy`)
-    - https://openwrt.org/docs/guide-user/firewall/fw3_configurations/intercept_dns
-    - https://forum.openwrt.org/t/does-https-dns-proxy-protect-against-dns-hijacking/107602/3
-    - https://forum.openwrt.org/t/question-on-dns-hijacking/149113
+- *optional:* enforce DNS hijacking on all interfaces not just `lan` (which is already handled by `https-dns-proxy`)
+  - https://openwrt.org/docs/guide-user/firewall/fw3_configurations/intercept_dns
+  - https://forum.openwrt.org/t/does-https-dns-proxy-protect-against-dns-hijacking/107602/3
+  - https://forum.openwrt.org/t/question-on-dns-hijacking/149113
 
 ### DDNS
 
 - https://www.dynu.com/en-US/
-- https://openwrt.org/docs/guide-user/services/ddns/client
-- https://www.youtube.com/watch?v=OWZkjawcM8A
+  - **Control Panel** --> **DDNS Services**
+- TLDR
+  - install `ddns-scripts`
+  - install `luci-app-ddns`
+  - **Services** --> **Dynamic DNS** --> edit `myddns_ipv4`
+    - **Basic Settings**
+      - enable
+      - Lookup Hostname
+      - DDNS Service provider: dynu.com
+      - Domain
+      - Username
+      - Password (use IP Update Password instead of account password)
+    - **Advanced Settings**
+      - IP address source: URL
+      - URL to detect: http://checkip.dyndns.com
+  - **Services** --> **Dynamic DNS** --> Reload `myddns_ipv4`
+- references
+  - https://openwrt.org/docs/guide-user/services/ddns/client
+  - https://www.youtube.com/watch?v=OWZkjawcM8A
 
 ### WireGuard server
 
