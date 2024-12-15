@@ -28,6 +28,7 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
     - generate ssh keys and add public key
     - `ssh-keygen -t ed25519`
   - --> **System**
+    - **Hostname**: helios (access: https://helios.lan)
     - **Timezone**
   - **Software**
     - run **Update lists...**
@@ -83,14 +84,17 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
 
 ### DNS
 
-- set hostname: helios at **System** --> **System**
-  - access: http://helios.lan
-- configure encrypted DNS
-  - https://openwrt.org/docs/guide-user/services/dns/doh_dnsmasq_https-dns-proxy
-  - install related LuCI UI package as well
-- configure DNS hijacking
-  - https://openwrt.org/docs/guide-user/firewall/fw3_configurations/intercept_dns
-  - https://forum.openwrt.org/t/does-https-dns-proxy-protect-against-dns-hijacking/107602/3
+- configure DoH
+  - TLDR
+    - install `https-dns-proxy`
+    - install `luci-app-https-dns-proxy` (**Services** --> **HTTPS DNS Proxy**)
+  - references
+    - https://openwrt.org/docs/guide-user/services/dns/doh_dnsmasq_https-dns-proxy#command-line_instructions
+    - https://openwrt.org/docs/guide-user/services/dns/doh_dnsmasq_https-dns-proxy#web_interface
+  - *optional:* enforce DNS hijacking on all interfaces not just `lan` (which is already handled by `https-dns-proxy`)
+    - https://openwrt.org/docs/guide-user/firewall/fw3_configurations/intercept_dns
+    - https://forum.openwrt.org/t/does-https-dns-proxy-protect-against-dns-hijacking/107602/3
+    - https://forum.openwrt.org/t/question-on-dns-hijacking/149113
 
 ### DDNS
 
