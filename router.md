@@ -52,8 +52,8 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
 ### Wireless
 
 - **Network** --> **Wireless**
-- SSID: Helios
-- SSID: Helios-5G
+- ESSID: Helios
+- ESSID: Helios-5G
 - country code: HU
 - encryption: WPA2-PSK/WPA3-SAE Mixed mode
 - enable KRACK countermeasures
@@ -169,12 +169,48 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
   - generate a pre-shared key to add an additional layer of symmetric-key cryptography to be mixed into the already existing public-key cryptography, for post-quantum resistance
     - https://wiki.archlinux.org/title/WireGuard
 
+### Zones
+
+- TLDR
+  - **Network**
+    - --> **Firewall**
+      - --> **General Settings**
+        - add zone `Guest`
+          - Allow forward to destination zones: add `wan`
+        - add zone `IOT`
+        - edit `lan`
+          - Allow forward to destination zones: add `IOT`
+      - --> **Traffic Rules**
+        - add rule
+          - Name: Guest DHCP and DNS
+          - Protocol: TCP and UDP
+          - Source zone: Guest
+          - Destination port: 53 67 68
+    - --> **Interfaces**
+      - add interface
+        - Name: guest
+        - Protocol: Static address
+        - IPv4 Address: 10.20.30.40
+        - IPv4 netmask: 255.255.255.0
+        - **DHCP Server** tab --> Set Up DHCP Server
+        - **Firewall Settings** tab --> Create / Assign firewall-zone: Guest
+      - add interface
+        - Name: iot
+        - IPv4 Address: 172.16.0.1
+        - **Firewall Settings** tab --> Create / Assign firewall-zone: IOT
+        - other settings are the same as above
+    - --> **Wireless**
+      - add interface
+        - ESSID: Helios-Guest
+        - Network: `guest`
+        - refer to [Wireless](#wireless) for the remaining settings
+      - add interface
+        - ESSID: Helios-IOT
+        - Network: `iot`
+        - refer to [Wireless](#wireless) for the remaining settings
+- references
+  - https://www.youtube.com/watch?v=UvniZs8q3eU
+
 ### System hardening
 
 - *optional*: https://openwrt.org/docs/guide-user/security/secure.access
-
-### VLAN
-
-- TODO: create VLANs
-  - https://www.youtube.com/watch?v=UvniZs8q3eU
-  - https://www.youtube.com/watch?v=4t_S2oWsBpE
