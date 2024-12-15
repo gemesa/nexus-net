@@ -143,19 +143,18 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
 
 #### Create client configs
 
-**TLDR example**
-
-```
-[Interface]
-Address = 192.168.9.4/32, fdf1:e8a1:8d3f:9::4/128
-PrivateKey = <content of wgclient.key>
-DNS = 192.168.9.1
-[Peer]
-PublicKey = <content of wgserver.pub>
-PresharedKey = <content of wgclient.psk>
-AllowedIPs = 0.0.0.0/0, ::/0
-Endpoint = <DDNS hostname>:51820
-```
+- TLDR example
+  ```
+  [Interface]
+  Address = 192.168.9.4/32, fdf1:e8a1:8d3f:9::4/128
+  PrivateKey = <content of wgclient.key>
+  DNS = 192.168.9.1
+  [Peer]
+  PublicKey = <content of wgserver.pub>
+  PresharedKey = <content of wgclient.psk>
+  AllowedIPs = 0.0.0.0/0, ::/0
+  Endpoint = <DDNS hostname>:51820
+  ```
 
 - references
   - https://serverfault.com/questions/1058255/configure-dns-routing-in-wireguard
@@ -170,26 +169,12 @@ Endpoint = <DDNS hostname>:51820
   - generate a pre-shared key to add an additional layer of symmetric-key cryptography to be mixed into the already existing public-key cryptography, for post-quantum resistance
     - https://wiki.archlinux.org/title/WireGuard
 
-### Security
+### System hardening
 
-- TODO: review router access security
-  - https://openwrt.org/docs/guide-user/security/secure.access
-  - https://news.ycombinator.com/item?id=17648956
-- TODO: review CCTV security
-  - https://www.een.com/security-camera-system-cyber-best-practices/
-  - https://www.ic2cctv.com/wp-content/uploads/2017/04/iC2-12-ways-Cyberattack_V2.pdf
-  - https://www.cctvcameraworld.com/secure-security-camera-system-on-internet/
-  - https://www.consumer.ftc.gov/articles/0382-using-ip-cameras-safely
-  - https://blog.cammy.com/prevent-ip-camera-hacking
-  - https://reolink.com/how-to-secure-your-wifi-enabled-home-camera/
+- *optional*: https://openwrt.org/docs/guide-user/security/secure.access
 
 ### VLAN
 
 - TODO: create VLANs
   - https://www.youtube.com/watch?v=UvniZs8q3eU
   - https://www.youtube.com/watch?v=4t_S2oWsBpE
-
-### Other
-
-- TODO: test WebRTC leak
-- TODO: experiment with bridge/transparent firewall
