@@ -17,20 +17,22 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
 ### Generic configuration
 
 - access: http://192.168.1.1
-- **System** --> **Administration**
-  - --> **Router Password**: set root pw
-  - --> **HTTP(S) Access**
-    - **Redirect to HTTPS**: enable
-  - --> **SSH Access**
-    - **Interface**: LAN
-    - **Password authentication**: disable
-  - --> **SSH-Keys**
-    - generate ssh keys and add public key
-    - `ssh-keygen -t ed25519`
+- **System**
+  - --> **Administration**
+    - --> **Router Password**: set root pw
+    - --> **HTTP(S) Access**
+      - **Redirect to HTTPS**: enable
+    - --> **SSH Access**
+      - **Interface**: LAN
+      - **Password authentication**: disable
+      - **Allow root logins with password**: disable
+    - --> **SSH-Keys**
+      - generate ssh keys and add public key
+      - `ssh-keygen -t ed25519`
   - --> **System**
     - **Hostname**: helios (access: https://helios.lan)
     - **Timezone**
-  - **Software**
+  - --> **Software**
     - run **Update lists...**
     - install packages
       - `nano`
@@ -57,7 +59,7 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
 - country code: HU
 - encryption: WPA2-PSK/WPA3-SAE Mixed mode
 - enable KRACK countermeasures
-- *experimental:* enable 802.11w MFP (some clients may not support this)
+- enable 802.11w MFP: Optional
     - https://forum.openwrt.org/t/i-need-help-how-to-prevent-wifi-from-dissociation-attack/85229
 
 ### Static leases
@@ -76,9 +78,9 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
   $ cat /etc/config/system
   config system
   ...
-    option log_ip <destination IP>
-    option log_port <destination port>
-    option log_proto <tcp or udp>
+    option log_ip '192.168.1.100'
+    option log_port '514'
+    option log_proto 'tcp'
   $ /etc/init.d/log restart
   ```
 - references
@@ -114,6 +116,8 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
       - Domain
       - Username
       - Password (use IP Update Password instead of account password)
+      - Use HTTP Secure
+      - Path to CA-Certificate: /etc/ssl/certs/ca-certificates.crt
     - **Advanced Settings**
       - IP address source: URL
       - URL to detect: http://checkip.dyndns.com
