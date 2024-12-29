@@ -59,7 +59,7 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
 - country code: HU
 - encryption: WPA2-PSK/WPA3-SAE Mixed mode
 - enable KRACK countermeasures
-- enable 802.11w MFP: Optional
+- 802.11w MFP: Optional
     - https://forum.openwrt.org/t/i-need-help-how-to-prevent-wifi-from-dissociation-attack/85229
 
 ### Static leases
