@@ -59,7 +59,7 @@ See [isp-router.md](isp-router.md)
 
 ---
 
-### Router - [Netgear Nighthawk X4S R7800](https://www.netgear.com/home/wifi/routers/r7800/)
+### Router - [ASUS RT-AX53U](https://openwrt.org/toh/asus/rt-ax53u)
 
 #### Overview
 
