@@ -69,6 +69,7 @@ See [isp-router.md](isp-router.md)
   - http://helios.lan or http://192.168.1.1
   - ssh (key auth enabled, pw auth disabled)
 - WireGuard server (with DDNS)
+- encryption: mixed WPA2/WPA3 PSK, SAE (CCMP)
 
 #### Details
 
