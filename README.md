@@ -14,9 +14,9 @@ This repository is a snapshot of my home network setup. There is also a second, 
                                    | ISP Router  |
                                    +-------------+
                                           |
-                                     +---------+
-                                     | Router  |
-                                     +---------+
+                                     +---------+         +----+
+                                     | Router  |   ~~~   | RE |
+                                     +---------+         +----+
                                           |
                       +---------------------------------------+
                       |                                       |
@@ -73,6 +73,15 @@ See [isp-router.md](isp-router.md)
 #### Details
 
 See [router.md](router.md)
+
+---
+
+### RE - [TP-Link RE315](https://www.tp-link.com/us/home-networking/range-extender/re315/)
+
+#### Overview
+
+- 2.4GHz only (5GHz disabled)
+- encryption: WPA2/WPA3-Personal
 
 ---
 
