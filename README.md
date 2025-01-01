@@ -1,6 +1,6 @@
 # nexus-net
 
-This repository is a snapshot of my home network setup. There is also a second, private repo containing the files with sensitive information. Passwords and private keys are stored in my PW manager.
+This repository serves as a snapshot of my personal home network setup. Passwords and private keys are securely stored in a password manager.
 
 ## Network topology
 
