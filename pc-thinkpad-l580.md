@@ -143,18 +143,15 @@ Host *
 #### Base apps
 
 Plain install:
-- **Beyond Compare**
-- **Bless Hex Editor**
-- **Docker**
-- **Ghidra**
-- **LibreOffice**
-- **NordVPN**
-- **NormCap**
-- **Raspberry Pi Imager**
-- **Remmina**
-- **VirtualBox**
-- **VS Code**
-- **Wireshark**
+- **[Beyond Compare](https://www.scootersoftware.com/download)**
+- **[Docker](https://docs.docker.com/engine/install/fedora/)**
+- **Foliate** via **Software**
+- **LibreOffice** via **Software**
+- **[NordVPN](https://nordvpn.com/download/linux/#install-nordvpn)**
+- **NormCap** via **Software**
+- **Raspberry Pi Imager** via **Software**
+- **Remmina** via `dnf`
+- **[Wireshark](https://fedoramagazine.org/how-to-install-wireshark-fedora/)**
 
 ##### Firefox
 
@@ -238,6 +235,48 @@ sudo wg-quick down l580
   - **CodeLLDB**
   - **Nord**
 
+##### Ghidra
+
+- install [from source](https://github.com/NationalSecurityAgency/ghidra/)
+  - install [sdkman](https://sdkman.io/)
+  - `curl -s "https://get.sdkman.io" | bash`
+  - `sdk install gradle`
+  - `sdk list java`
+  - `sdk install java 21.0.4-tem`
+  - `gradle -I gradle/support/fetchDependencies.gradle`
+  - `gradle buildGhidra`
+- **Edit** --> **Theme** --> **Switch...** --> Flat Dark
+- install extensions
+  - https://github.com/google/binexport
+  - https://github.com/ubfx/BinDiffHelper
+
+##### DIE
+
+- install [from source](https://github.com/horsicq/Detect-It-Easy/blob/master/docs/BUILD.md#how-to-build-with-cmake)
+- prerequisites:
+  - `sudo dnf install cmake qt5-qtbase-devel qt5-qttools-devel qt5-qtmultimedia-devel qt5-qtsvg-devel qt5-qtwebsockets-devel qt5-qtdeclarative-devel qt5-qtscript-devel qt5-qtquickcontrols2-devel qt5-qtwayland-devel`
+
+##### capa
+
+- [download](https://github.com/mandiant/capa/releases) and add to path
+
+##### LLVM
+
+- `sudo dnf install llvm`
+- contains `clang` and LLVM binutils (such as `llvm-objdump`)
+
+##### Rust
+
+- https://www.rust-lang.org/tools/install
+
+##### frida
+
+- `pip install frida-tools`
+
+##### Metasploit
+
+- https://docs.metasploit.com/docs/using-metasploit/getting-started/nightly-installers.html#installing-metasploit-on-linux--macos
+
 ##### Virtual Machine Manager
 
 - install from **Software**
@@ -268,38 +307,6 @@ sudo wg-quick down l580
   kvm                  1449984  1 kvm_amd
   $ sudo modprobe -r kvm_amd
   ```
-
-##### Fedora RE VM (in VirtualBox)
-
-- download and install [Fedora](https://fedoraproject.org/workstation/download)
-- machine settings:
-  - **Settings** --> **System**
-    - --> **Processor** --> Processors: 4
-    - --> **Motherboard** --> Base Memory: 4096
-  - **Devices** --> **Shared Clipboard** --> Bidirectional
-- **Settings**
-  - --> **Display** --> **Resolution** --> 1600 x 900
-  - --> **Appearance** --> **Style** --> Dark
-- `sudo dnf upgrade --refresh -y`
-- [enable dark theme for Qt applications](https://unix.stackexchange.com/questions/745499/how-to-enable-dark-theme-for-qt-applications)
-- install [DIE from source](https://github.com/horsicq/Detect-It-Easy/blob/master/docs/BUILD.md#how-to-build-with-cmake)
-  - `sudo dnf install cmake qt5-qtbase-devel qt5-qttools-devel qt5-qtmultimedia-devel qt5-qtsvg-devel qt5-qtwebsockets-devel qt5-qtdeclarative-devel qt5-qtscript-devel qt5-qtquickcontrols2-devel qt5-qtwayland-devel`
-- `sudo dnf install llvm python pip`
-- install [capa](https://github.com/mandiant/capa/releases)
-- install [Ghidra from source](https://github.com/NationalSecurityAgency/ghidra/)
-  - install [sdkman](https://sdkman.io/)
-  - `curl -s "https://get.sdkman.io" | bash`
-  - `sdk install gradle`
-  - `sdk list java`
-  - `sdk install java 21.0.4-tem`
-  - `gradle -I gradle/support/fetchDependencies.gradle`
-  - `gradle buildGhidra`
-- `sudo dnf install openssl`
-- machine settings:
-  - **Settings**
-    - --> **Adapter 1** --> Attached to: Internal Network
-    - --> **Shared Folders** --> add read-only, auto-mount folder, path: `/home/gemesa/Downloads/malware-bazaar`
-- take VM snapshot
 
 ##### git
 
@@ -339,14 +346,36 @@ how to change font in WSL:
   - --> font face: firacode nerd font
   - --> font size: 10
 
+##### Fedora RE VM (in VirtualBox)
+
+- download and install [Fedora](https://fedoraproject.org/workstation/download)
+- machine settings:
+  - **Settings** --> **System**
+    - --> **Processor** --> Processors: 4
+    - --> **Motherboard** --> Base Memory: 4096
+  - **Devices** --> **Shared Clipboard** --> Bidirectional
+- **Settings**
+  - --> **Display** --> **Resolution** --> 1600 x 900
+  - --> **Appearance** --> **Style** --> Dark
+- `sudo dnf upgrade --refresh -y`
+- [enable dark theme for Qt applications](https://unix.stackexchange.com/questions/745499/how-to-enable-dark-theme-for-qt-applications)
+- `sudo dnf install llvm python pip`
+- `sudo dnf install openssl`
+- install [DIE](#die)
+- install [capa](#capa)
+- install [Ghidra](#ghidra)
+- machine settings:
+  - **Settings**
+    - --> **Adapter 1** --> Attached to: Internal Network
+    - --> **Shared Folders** --> add read-only, auto-mount folder, path: `/home/gemesa/Downloads/malware-bazaar`
+- take VM snapshot
+
 #### Optional apps
 
 Plain install:
-- **Foliate**
-- **Geany**
-- **GIMP**
-- **Pinta**
-- **VLC**
+- **GIMP** via **Software**
+- **Pinta** via **Software**
+- **VLC** via **Software**
 
 ##### JetBrains Toolbox: CLion/PyCharm
 
@@ -358,21 +387,3 @@ Plain install:
     - Font: Fira code
     - Font size: 12
     - Line height: 1.2
-
-#### Other packages
-
-```
-sudo dnf install valgrind bmon nmap p0f hashcat aircrack-ng shellcheck shfmt tftp-server tftp gpsbabel make autoconf automake cmake ninja-build ccache gcc gcc-c++ kernel-devel clang curl wget python3 coreutils gdb minicom xfreerdp hydra htop upx hexedit nasm gobuster mingw64-gcc strace musl-gcc pandoc
-```
-
-#### Manual installation
-
-- https://www.rust-lang.org/tools/install
-- https://github.com/ZerBea/hcxdumptool
-- https://github.com/ZerBea/hcxtools
-- https://github.com/openwall/john
-- https://github.com/klauspost/asmfmt
-- https://github.com/frida/frida
-- https://github.com/rapid7/metasploit-framework
-- https://github.com/blackberry/pe_tree
-- https://github.com/volatilityfoundation/volatility3
