@@ -272,7 +272,7 @@ sudo wg-quick down l580
 ##### Fedora RE VM (in VirtualBox)
 
 - download and install [Fedora](https://fedoraproject.org/workstation/download)
-- host:
+- machine settings:
   - **Settings** --> **System**
     - --> **Processor** --> Processors: 4
     - --> **Motherboard** --> Base Memory: 4096
@@ -295,6 +295,11 @@ sudo wg-quick down l580
   - `gradle -I gradle/support/fetchDependencies.gradle`
   - `gradle buildGhidra`
 - `sudo dnf install openssl`
+- machine settings:
+  - **Settings**
+    - --> **Adapter 1** --> Attached to: Internal Network
+    - --> **Shared Folders** --> add read-only, auto-mount folder, path: `/home/gemesa/Downloads/malware-bazaar`
+- take VM snapshot
 
 ##### git
 
