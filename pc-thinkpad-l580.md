@@ -269,6 +269,33 @@ sudo wg-quick down l580
   $ sudo modprobe -r kvm_amd
   ```
 
+##### Fedora RE VM (in VirtualBox)
+
+- download and install [Fedora](https://fedoraproject.org/workstation/download)
+- host:
+  - **Settings** --> **System**
+    - --> **Processor** --> Processors: 4
+    - --> **Motherboard** --> Base Memory: 4096
+  - **Devices** --> **Shared Clipboard** --> Bidirectional
+- **Settings**
+  - --> **Display** --> **Resolution** --> 1600 x 900
+  - --> **Appearance** --> **Style** --> Dark
+- `sudo dnf upgrade --refresh -y`
+- [enable dark theme for Qt applications](https://unix.stackexchange.com/questions/745499/how-to-enable-dark-theme-for-qt-applications)
+- install [DIE from source](https://github.com/horsicq/Detect-It-Easy/blob/master/docs/BUILD.md#how-to-build-with-cmake)
+  - `sudo dnf install cmake qt5-qtbase-devel qt5-qttools-devel qt5-qtmultimedia-devel qt5-qtsvg-devel qt5-qtwebsockets-devel qt5-qtdeclarative-devel qt5-qtscript-devel qt5-qtquickcontrols2-devel qt5-qtwayland-devel`
+- `sudo dnf install llvm python pip`
+- install [capa](https://github.com/mandiant/capa/releases)
+- install [Ghidra from source](https://github.com/NationalSecurityAgency/ghidra/)
+  - install [sdkman](https://sdkman.io/)
+  - `curl -s "https://get.sdkman.io" | bash`
+  - `sdk install gradle`
+  - `sdk list java`
+  - `sdk install java 21.0.4-tem`
+  - `gradle -I gradle/support/fetchDependencies.gradle`
+  - `gradle buildGhidra`
+- `sudo dnf install openssl`
+
 ##### git
 
 ```
