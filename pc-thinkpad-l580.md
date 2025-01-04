@@ -261,6 +261,13 @@ sudo wg-quick down l580
   - add the [Fedora repo file](https://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo) to `/etc/yum.repos.d/`
   - `sudo dnf install VirtualBox-7.0` (install latest major version)
   - `sudo usermod -a -G vboxusers $USER`
+- in case of error `VirtualBox can't enable the AMD-V extension. Please disable the KVM kernel extension, recompile your kernel and reboot (VERR_SVM_IN_USE).`
+  ```
+  $ lsmod | grep kvm
+  kvm_amd               249856  0
+  kvm                  1449984  1 kvm_amd
+  $ sudo modprobe -r kvm_amd
+  ```
 
 ##### git
 
