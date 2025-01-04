@@ -226,14 +226,14 @@ sudo wg-quick down l580
   - --> **Files**
     - Auto Save: afterDelay
 - **Extensions**
-  - **Even Better TOML**
-  - **rust-analyzer**
-  - **Error Lens**
-  - **Dependi**
-  - **Markdown PDF**
-  - **x86 and x86_64 Assembly**
+  - **Assembly for ARM64**
   - **CodeLLDB**
+  - **Dependi**
+  - **Even Better TOML**
+  - **Markdown PDF**
   - **Nord**
+  - **rust-analyzer**
+  - **x86 and x86_64 Assembly**
 
 ##### Ghidra
 
@@ -252,13 +252,22 @@ sudo wg-quick down l580
 
 ##### DIE
 
+- [enable dark theme for Qt applications](https://unix.stackexchange.com/questions/745499/how-to-enable-dark-theme-for-qt-applications)
 - install [from source](https://github.com/horsicq/Detect-It-Easy/blob/master/docs/BUILD.md#how-to-build-with-cmake)
 - prerequisites:
   - `sudo dnf install cmake qt5-qtbase-devel qt5-qttools-devel qt5-qtmultimedia-devel qt5-qtsvg-devel qt5-qtwebsockets-devel qt5-qtdeclarative-devel qt5-qtscript-devel qt5-qtquickcontrols2-devel qt5-qtwayland-devel`
 
+##### Python
+
+- `sudo dnf install python pip`
+
 ##### capa
 
 - [download](https://github.com/mandiant/capa/releases) and add to path
+
+##### OpenSSL
+
+- `sudo dnf install openssl`
 
 ##### LLVM
 
@@ -358,9 +367,9 @@ how to change font in WSL:
   - --> **Display** --> **Resolution** --> 1600 x 900
   - --> **Appearance** --> **Style** --> Dark
 - `sudo dnf upgrade --refresh -y`
-- [enable dark theme for Qt applications](https://unix.stackexchange.com/questions/745499/how-to-enable-dark-theme-for-qt-applications)
-- `sudo dnf install llvm python pip`
-- `sudo dnf install openssl`
+- install [Python](#python)
+- install [LLVM](#llvm)
+- install [OpenSSL](#openssl)
 - install [DIE](#die)
 - install [capa](#capa)
 - install [Ghidra](#ghidra)
