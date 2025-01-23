@@ -334,6 +334,14 @@ $ git config --global core.editor "nano"
 $ git config --global --list
 ```
 
+##### nano
+
+```
+$ nano ~/.nanorc
+$ cat ~/.nanorc
+set constantshow
+```
+
 ##### yazi
 
 ```
