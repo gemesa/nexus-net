@@ -330,6 +330,7 @@ $ git config --global user.name "Andras Gemes"
 $ git config --global user.email "gemesa@protonmail.com"
 $ git config --global commit.gpgsign true
 $ git config --global user.signingkey <key ID>
+$ git config --global core.editor "nano"
 $ git config --global --list
 ```
 
