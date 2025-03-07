@@ -121,7 +121,7 @@
   sudo ufw status
   ```
 - copy NAS ssh key to `/root/.ssh` and `/home/pi/.ssh`
-  - (running `./backup.sh` will need root priviledges to overwrite directory timestamps)
+  - (running `./backup.sh` will need root privileges to overwrite directory timestamps)
 - TODO: disable bluetooth
   - consider doing this in `stage1-otherscript.sh`
   - https://forums.raspberrypi.com/viewtopic.php?t=290611
