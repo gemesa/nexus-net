@@ -235,52 +235,13 @@ sudo wg-quick down l580
   - **rust-analyzer**
   - **x86 and x86_64 Assembly**
 
-##### Ghidra
+##### Malware analysis tools
 
-- install [from source](https://github.com/NationalSecurityAgency/ghidra/)
-  - install [sdkman](https://sdkman.io/)
-  - `curl -s "https://get.sdkman.io" | bash`
-  - `sdk install gradle`
-  - `sdk list java`
-  - `sdk install java 21.0.4-tem`
-  - `gradle -I gradle/support/fetchDependencies.gradle`
-  - `gradle buildGhidra`
-- **Edit** --> **Theme** --> **Switch...** --> Flat Dark
-- install extensions
-  - https://github.com/google/binexport
-  - https://github.com/ubfx/BinDiffHelper
-
-##### DIE
-
-- [enable dark theme for Qt applications](https://unix.stackexchange.com/questions/745499/how-to-enable-dark-theme-for-qt-applications)
-- install [from source](https://github.com/horsicq/Detect-It-Easy/blob/master/docs/BUILD.md#how-to-build-with-cmake)
-- prerequisites:
-  - `sudo dnf install cmake qt5-qtbase-devel qt5-qttools-devel qt5-qtmultimedia-devel qt5-qtsvg-devel qt5-qtwebsockets-devel qt5-qtdeclarative-devel qt5-qtscript-devel qt5-qtquickcontrols2-devel qt5-qtwayland-devel`
-
-##### Python
-
-- `sudo dnf install python pip`
-
-##### capa
-
-- [download](https://github.com/mandiant/capa/releases) and add to path
-
-##### OpenSSL
-
-- `sudo dnf install openssl`
-
-##### LLVM
-
-- `sudo dnf install llvm`
-- contains `clang` and LLVM binutils (such as `llvm-objdump`)
+- https://github.com/gemesa/malware-analysis-toolkit
 
 ##### Rust
 
 - https://www.rust-lang.org/tools/install
-
-##### frida
-
-- `pip install frida-tools`
 
 ##### Metasploit
 
@@ -297,25 +258,6 @@ sudo wg-quick down l580
 - set up shared folder
     - https://blog.sergeantbiggs.net/posts/file-sharing-with-qemu-and-virt-manager/
     - https://nts.strzibny.name/how-to-set-up-shared-folders-in-virt-manager/
-
-##### VirtualBox
-
-- prerequisites
-  - `sudo dnf install gcc make perl kernel-devel`
-- https://www.virtualbox.org/wiki/Linux_Downloads
-  - refer to chapter "RPM-based Linux distributions" and install from the repo
-  - download `oracle_vbox_2016.asc`
-  - `sudo rpm --import oracle_vbox_2016.asc`
-  - add the [Fedora repo file](https://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo) to `/etc/yum.repos.d/`
-  - `sudo dnf install VirtualBox-7.0` (install latest major version)
-  - `sudo usermod -a -G vboxusers $USER`
-- in case of error `VirtualBox can't enable the AMD-V extension. Please disable the KVM kernel extension, recompile your kernel and reboot (VERR_SVM_IN_USE).`
-  ```
-  $ lsmod | grep kvm
-  kvm_amd               249856  0
-  kvm                  1449984  1 kvm_amd
-  $ sudo modprobe -r kvm_amd
-  ```
 
 ##### git
 
@@ -363,30 +305,6 @@ how to change font in WSL:
   - --> color scheme: one half dark
   - --> font face: firacode nerd font
   - --> font size: 10
-
-##### Fedora RE VM (in VirtualBox)
-
-- download and install [Fedora](https://fedoraproject.org/workstation/download)
-- machine settings:
-  - **Settings** --> **System**
-    - --> **Processor** --> Processors: 4
-    - --> **Motherboard** --> Base Memory: 4096
-  - **Devices** --> **Shared Clipboard** --> Bidirectional
-- **Settings**
-  - --> **Display** --> **Resolution** --> 1600 x 900
-  - --> **Appearance** --> **Style** --> Dark
-- `sudo dnf upgrade --refresh -y`
-- install [Python](#python)
-- install [LLVM](#llvm)
-- install [OpenSSL](#openssl)
-- install [DIE](#die)
-- install [capa](#capa)
-- install [Ghidra](#ghidra)
-- machine settings:
-  - **Settings**
-    - --> **Adapter 1** --> Attached to: Internal Network
-    - --> **Shared Folders** --> add read-only, auto-mount folder, path: `/home/gemesa/Downloads/malware-bazaar`
-- take VM snapshot
 
 #### Optional apps
 
