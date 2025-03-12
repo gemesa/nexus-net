@@ -234,6 +234,7 @@ sudo wg-quick down l580
   - **Nord**
   - **rust-analyzer**
   - **x86 and x86_64 Assembly**
+  - **YARA**
 
 ##### Malware analysis tools
 
