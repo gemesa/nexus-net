@@ -145,6 +145,7 @@ Host *
 Plain install:
 - **[Beyond Compare](https://www.scootersoftware.com/download)**
 - **[Docker](https://docs.docker.com/engine/install/fedora/)**
+- **[Etcher](https://etcher.balena.io/#download-etcher)**
 - **Foliate** via **Software**
 - **LibreOffice** via **Software**
 - **[NordVPN](https://nordvpn.com/download/linux/#install-nordvpn)**
