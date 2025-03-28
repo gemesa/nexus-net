@@ -152,7 +152,6 @@ Plain install:
 - **NormCap** via **Software**
 - **Raspberry Pi Imager** via **Software**
 - **Remmina** via `dnf`
-- **[Wireshark](https://fedoramagazine.org/how-to-install-wireshark-fedora/)**
 
 ##### Firefox
 
