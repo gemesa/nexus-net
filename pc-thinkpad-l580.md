@@ -233,7 +233,7 @@ sudo wg-quick down l580
   - **Markdown PDF**
   - **Nord**
   - **rust-analyzer**
-  - **x86 and x86_64 Assembly**
+  - **Scala (Metals)**
   - **YARA**
 
 ##### Malware analysis tools
