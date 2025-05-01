@@ -151,7 +151,6 @@ Plain install:
 - **[NordVPN](https://nordvpn.com/download/linux/#install-nordvpn)**
 - **NormCap** via **Software**
 - **Raspberry Pi Imager** via **Software**
-- **Remmina** via `dnf`
 
 ##### Firefox
 
@@ -248,18 +247,6 @@ sudo wg-quick down l580
 
 - https://docs.metasploit.com/docs/using-metasploit/getting-started/nightly-installers.html#installing-metasploit-on-linux--macos
 
-##### Virtual Machine Manager
-
-- install from **Software**
-- https://fedoramagazine.org/full-virtualization-system-on-fedora-workstation-30/
-- create Ubuntu 22.04 VM
-    - **Virtual Machine Manager** --> Ubuntu VM --> **Open** --> **Show virtual hardware details** --> **Video** --> select VGA or Virtio (disable 3D acceleration)
-    - Ubuntu VM --> **Settings** --> **Displays** --> resolution: 1920x1080
-        - https://superuser.com/questions/132322/how-to-increase-the-visualized-screen-resolution-on-qemu-kvm
-- set up shared folder
-    - https://blog.sergeantbiggs.net/posts/file-sharing-with-qemu-and-virt-manager/
-    - https://nts.strzibny.name/how-to-set-up-shared-folders-in-virt-manager/
-
 ##### git
 
 ```
@@ -313,14 +300,3 @@ Plain install:
 - **GIMP** via **Software**
 - **Pinta** via **Software**
 - **VLC** via **Software**
-
-##### JetBrains Toolbox: CLion/PyCharm
-
-- **File** --> **Settings**
-  - **Appearance & Behaviour** --> **New UI** --> Enable new UI
-  - **Tools** --> **Python Integrated Tools** --> **Docstrings** --> Google format
-  - **Plugins** --> **Nord**
-  - **Editor** --> **Font**
-    - Font: Fira code
-    - Font size: 12
-    - Line height: 1.2
