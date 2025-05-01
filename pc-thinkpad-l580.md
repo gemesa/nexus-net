@@ -145,6 +145,7 @@ Host *
 Plain install:
 - **[Beyond Compare](https://www.scootersoftware.com/download)**
 - **[Docker](https://docs.docker.com/engine/install/fedora/)**
+- **[Ente Auth](https://github.com/ente-io/ente/releases)**
 - **[Etcher](https://etcher.balena.io/#download-etcher)**
 - **Foliate** via **Software**
 - **LibreOffice** via **Software**
