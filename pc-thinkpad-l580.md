@@ -294,6 +294,24 @@ how to change font in WSL:
   - --> font face: firacode nerd font
   - --> font size: 10
 
+##### Waydroid
+
+```
+$ sudo waydroid init -s GAPPS -f -chttps://ota.waydro.id/system -v https://ota.waydro.id/vendor
+$ sudo firewall-cmd --add-port=53/udp --permanent
+$ sudo firewall-cmd --add-port=67/udp --permanent
+$ sudo firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -j ACCEPT
+$ sudo firewall-cmd --permanent --direct --add-rule ipv6 filter FORWARD 0 -j ACCEPT
+$ firewall-cmd --reload
+$ systemctl status waydroid-container.service
+$ waydroid session start
+$ waydroid show-full-ui
+```
+
+- https://docs.waydro.id/usage/install-on-desktops#fedora
+- https://docs.waydro.id/faq/google-play-certification
+- https://www.reddit.com/r/waydroid/comments/z57rx7/help_i_cant_connect_waydroid_to_internet/
+
 #### Optional apps
 
 Plain install:
