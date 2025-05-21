@@ -152,6 +152,7 @@ Plain install:
 - **[NordVPN](https://nordvpn.com/download/linux/#install-nordvpn)**
 - **NormCap** via **Software**
 - **Raspberry Pi Imager** via **Software**
+- **[tealdeer](https://github.com/tealdeer-rs/tealdeer)**
 
 ##### Firefox
 
