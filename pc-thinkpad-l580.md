@@ -228,9 +228,10 @@ sudo wg-quick down l580
     - Auto Save: afterDelay
 - **Extensions**
   - **Assembly for ARM64**
-  - **CodeLLDB**
   - **Dependi**
   - **Even Better TOML**
+  - **Hex Editor**
+  - **LLVM** (LLVM IR syntax highlight)
   - **Markdown PDF**
   - **Nord**
   - **rust-analyzer**
