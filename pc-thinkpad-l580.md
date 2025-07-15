@@ -148,6 +148,7 @@ Plain install:
 - **[Ente Auth](https://github.com/ente-io/ente/releases)**
 - **[Etcher](https://etcher.balena.io/#download-etcher)**
 - **Foliate** via **Software**
+- **[gTile](https://extensions.gnome.org/extension/28/gtile/)**
 - **LibreOffice** via **Software**
 - **[NordVPN](https://nordvpn.com/download/linux/#install-nordvpn)**
 - **NormCap** via **Software**
