@@ -140,6 +140,16 @@ Host *
 - https://confluence.atlassian.com/bitbucketserverkb/ssh-rsa-key-rejected-with-message-no-mutual-signature-algorithm-1026057701.html
 - https://unix.stackexchange.com/questions/630446/ssh-in-fedora-33-error-sign-and-send-pubkey-no-mutual-signature-supported
 
+#### gpg
+
+- copy gpg keys from backup to `~/`
+
+```
+$ gpg --import ~/private.gpg
+$ gpg --list-secret-keys --keyid-format=long
+$ rm ~/private.gpg
+```
+
 #### Base apps
 
 Plain install:
@@ -254,7 +264,6 @@ sudo wg-quick down l580
 ##### git
 
 ```
-$ gpg --import private.gpg
 $ gpg --list-secret-keys --keyid-format=long
 $ nano ~/.ssh/config
 $ cat ~/.ssh/config
