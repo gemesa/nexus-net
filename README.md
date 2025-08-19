@@ -20,9 +20,9 @@ This repository serves as a snapshot of my personal home network setup. Password
                                           |
                       +---------------------------------------+
                       |                                       |
- +-----+   +---------------------+                 +---------------------+
- | PC  |---|       Switch        |                 |       Switch        |
- +-----+   +---------------------+                 +---------------------+
+  +----+   +---------------------+        +----+   +---------------------+   +----+
+  | PC |---|       Switch        |        | PC |---|       Switch        |---| PC |
+  +----+   +---------------------+        +----+   +---------------------+   +----+
             |         |         |                        |         |
          +-----+ +---------+ +-----+   +-------+      +-----+   +-----+   +-------+
          | PC  | | IP Cam  | | RPi |---| UPS 0 |      | XVR |   | NAS |---| UPS 1 |
@@ -178,6 +178,16 @@ See [pc-thinkpad-l580.md](pc-thinkpad-l580.md)
 See [pc-minisforum-x500-5700g.md](pc-minisforum-x500-5700g.md)
 
 ---
+
+### PC - [Radxa ROCK 5C](https://radxa.com/products/rock5/5c/)
+
+#### Overview
+
+- [Armbian](https://www.armbian.com/)
+
+#### Details
+
+See [pc-radxa-rock-5c.md](pc-radxa-rock-5c.md)
 
 ### Phone - [Galaxy S10e 128 GB](https://www.samsung.com/hu/support/model/SM-G970FZWDXEH)
 

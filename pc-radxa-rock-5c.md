@@ -2,7 +2,7 @@
 
 ### Install
 
-N/A
+- https://www.armbian.com/
 
 ### Setup
 
