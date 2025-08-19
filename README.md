@@ -185,11 +185,11 @@ See [pc-minisforum-x500-5700g.md](pc-minisforum-x500-5700g.md)
 
 - [Armbian](https://www.armbian.com/)
 
----
-
 #### Details
 
 See [pc-radxa-rock-5c.md](pc-radxa-rock-5c.md)
+
+---
 
 ### Phone - [Galaxy S10e 128 GB](https://www.samsung.com/hu/support/model/SM-G970FZWDXEH)
 
