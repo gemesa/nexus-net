@@ -185,6 +185,8 @@ See [pc-minisforum-x500-5700g.md](pc-minisforum-x500-5700g.md)
 
 - [Armbian](https://www.armbian.com/)
 
+---
+
 #### Details
 
 See [pc-radxa-rock-5c.md](pc-radxa-rock-5c.md)
