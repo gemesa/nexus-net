@@ -179,6 +179,18 @@ See [pc-minisforum-x500-5700g.md](pc-minisforum-x500-5700g.md)
 
 ---
 
+### PC - [Mac Mini M1](https://support.apple.com/en-us/111894)
+
+#### Overview
+
+- macOS 15
+
+#### Details
+
+See [pc-mac-mini-m1.md](pc-mac-mini-m1.md)
+
+---
+
 ### PC - [Radxa ROCK 5C](https://radxa.com/products/rock5/5c/)
 
 #### Overview
