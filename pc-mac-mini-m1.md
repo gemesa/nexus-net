@@ -92,6 +92,28 @@ $ brew install --cask rectangle
 - `brew install font-fire-code`
 - set Fira code and font size 12
 
+#### LLVM
+
+```
+$ brew install llvm
+$ sudo ln -s /opt/homebrew/opt/llvm/bin/clang-format /usr/local/bin/clang-format
+$ sudo ln -s /opt/homebrew/opt/llvm/bin/clang-tidy /usr/local/bin/clang-tidy
+$ sudo ln -s /opt/homebrew/opt/llvm/bin/opt /usr/local/bin/opt
+$ sudo ln -s /opt/homebrew/opt/llvm/bin/llc /usr/local/bin/llc
+```
+
+#### Docker
+
+```
+$ brew install --cask docker
+```
+
+#### VS Code
+
+```
+$ brew install --cask visual-studio-code
+```
+
 #### Other apps
 
 - refer to [pc-thinkpad-l580.md](pc-thinkpad-l580.md)
