@@ -237,6 +237,7 @@ sudo wg-quick down l580
     - Font family: Fira Code
   - --> **Files**
     - Auto Save: afterDelay
+- **World Wrap** --> on
 - **Extensions**
   - **Assembly for ARM64**
   - **Dependi**
