@@ -115,6 +115,29 @@ $ brew install --cask docker
 $ brew install --cask visual-studio-code
 ```
 
+#### Dock
+
+Remove the following apps from Dock:
+
+- Safari
+- Messages
+- Mail
+- Maps
+- Photos
+- FaceTime
+- Contacts
+- Reminders
+- Freeform
+- TV
+- Music
+
+Add the following apps to Dock:
+
+- Firefox
+- VS Code
+- Terminal
+- System Information
+
 #### Other apps
 
 - refer to [pc-thinkpad-l580.md](pc-thinkpad-l580.md)
