@@ -80,6 +80,7 @@ $ brew install --cask rectangle
 
 - top left —> top left sixth
 - bottom left —> bottom left sixth
+- Launch on login
 
 #### System
 
