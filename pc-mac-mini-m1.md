@@ -101,6 +101,7 @@ $ sudo ln -s /opt/homebrew/opt/llvm/bin/clang-format /usr/local/bin/clang-format
 $ sudo ln -s /opt/homebrew/opt/llvm/bin/clang-tidy /usr/local/bin/clang-tidy
 $ sudo ln -s /opt/homebrew/opt/llvm/bin/opt /usr/local/bin/opt
 $ sudo ln -s /opt/homebrew/opt/llvm/bin/llc /usr/local/bin/llc
+$ sudo ln -s /opt/homebrew/opt/llvm/bin/llvm-config /usr/local/bin/llvm-config
 ```
 
 #### Docker
