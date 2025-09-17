@@ -148,6 +148,7 @@ Add the following apps to Dock:
 - Terminal
 - System Information
 - WireGuard
+- Ente Auth
 
 #### Other apps
 
