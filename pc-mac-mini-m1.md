@@ -121,6 +121,10 @@ $ brew install --cask visual-studio-code
 - copy config from backup
 - install from App Store
 
+#### Ente Auth
+
+- install from App Store
+
 #### Dock
 
 Remove the following apps from Dock:
