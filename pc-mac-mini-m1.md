@@ -143,6 +143,7 @@ Add the following apps to Dock:
 - VS Code
 - Terminal
 - System Information
+- WireGuard
 
 #### Other apps
 
