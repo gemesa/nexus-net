@@ -48,6 +48,9 @@ $ git config --global commit.gpgsign true
 $ git config --global user.signingkey <key ID>
 $ git config --global core.editor "nano"
 $ git config --global --list
+$ git config --global diff.tool bc
+$ git config --global difftool.bc.path "/Applications/Beyond Compare.app/Contents/MacOS/BCompare"
+$ git config --global difftool.prompt false
 ```
 
 #### keyboard layout
