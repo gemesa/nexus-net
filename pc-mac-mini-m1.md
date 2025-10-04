@@ -53,6 +53,8 @@ $ git config --global difftool.bc.path "/Applications/Beyond Compare.app/Content
 $ git config --global difftool.prompt false
 ```
 
+Note: [Beyond Compare](https://www.scootersoftware.com/download) has to be installed manually.
+
 #### keyboard layout
 
 ```
