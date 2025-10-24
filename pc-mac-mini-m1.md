@@ -152,10 +152,13 @@ Add the following apps to Dock:
 
 - Firefox
 - VS Code
+- Xcode
 - Terminal
 - System Information
 - WireGuard
 - Ente Auth
+- Beyond Compare
+- Docker Desktop
 
 #### Other apps
 
