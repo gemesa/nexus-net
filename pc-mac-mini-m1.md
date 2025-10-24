@@ -123,6 +123,11 @@ $ brew install --cask docker
 $ brew install --cask visual-studio-code
 ```
 
+#### Xcode
+
+- install from App Store
+- [disable iOS simulator warnings](https://www.reddit.com/r/SwiftUI/comments/1dmukgm/how_to_silence_xcode_debug_output/): `Product` --> `Scheme` --> `Edit Scheme...` --> `Run` --> `Arguments` --> `Environment Variables` --> add: `OS_ACTIVITY_MODE=disable`
+
 #### WireGuard
 
 - copy config from backup
