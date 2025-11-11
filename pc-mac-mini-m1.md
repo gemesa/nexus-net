@@ -59,7 +59,7 @@ Note: [Beyond Compare](https://www.scootersoftware.com/download) has to be insta
 
 ```
 $ git clone https://github.com/zaki/mac-hun-keyboard
-$ cp mac-hun-keyboard-master/Hungarian_Win.keylayout ~/~/Library/Keyboard\ Layouts/
+$ cp mac-hun-keyboard-master/Hungarian_Win.keylayout ~/Library/Keyboard\ Layouts/
 ```
 
 - reboot and select the layout under the keyboard settings
