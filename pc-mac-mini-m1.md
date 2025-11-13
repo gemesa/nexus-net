@@ -128,6 +128,16 @@ $ brew install --cask visual-studio-code
 - install from App Store
 - [disable iOS simulator warnings](https://www.reddit.com/r/SwiftUI/comments/1dmukgm/how_to_silence_xcode_debug_output/): `Product` --> `Scheme` --> `Edit Scheme...` --> `Run` --> `Arguments` --> `Environment Variables` --> add: `OS_ACTIVITY_MODE=disable`
 
+#### Android Studio
+
+- https://developer.android.com/studio
+- update `~/.zshrc`:
+  ```
+  export ANDROID_HOME=$HOME/Library/Android/sdk
+  export PATH=$PATH:$ANDROID_HOME/emulator
+  export PATH=$PATH:$ANDROID_HOME/platform-tools
+  ```
+
 #### WireGuard
 
 - copy config from backup
