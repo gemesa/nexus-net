@@ -137,6 +137,7 @@ $ brew install --cask visual-studio-code
   export PATH=$PATH:$ANDROID_HOME/emulator
   export PATH=$PATH:$ANDROID_HOME/platform-tools
   ```
+- right click on toolbar --> `Add Action to Main Toolbar` --> `Back / Forward`
 
 #### WireGuard
 
