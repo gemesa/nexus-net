@@ -173,6 +173,11 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
   - generate a pre-shared key to add an additional layer of symmetric-key cryptography to be mixed into the already existing public-key cryptography, for post-quantum resistance
     - https://wiki.archlinux.org/title/WireGuard
 
+### WOL
+
+- install `etherwake`
+- usage: `etherwake XX:XX:XX:XX:XX:XX`
+
 ### Zones
 
 - TLDR

@@ -143,6 +143,10 @@ echo "[FINISH] $(date)" >> $LOG_FILE
 - enable UPS at **Control Panel** --> **Hardware & Power** --> **UPS**
   - UPS type: USB UPS
   - set time before NAS enters standby mode: 20 mins
+- enable WOL at **Control Panel** --> **Hardware & Power** --> **General** --> **Power Recovery**
+  - disable: Restart automatically when power supply issue is fixed
+  - enable: Enable WOL on Lan 1
+  - enable: Enable WOL on Lan 2
 
 ### Update and backup
 
