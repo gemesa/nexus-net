@@ -176,7 +176,7 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
 ### WOL
 
 - install `etherwake`
-- usage: `etherwake XX:XX:XX:XX:XX:XX`
+- usage: `etherwake -i br-lan XX:XX:XX:XX:XX:XX`
 
 ### Zones
 
