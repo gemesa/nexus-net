@@ -90,6 +90,7 @@ $ brew install --cask rectangle
 #### System
 
 - System Settings —> Mouse —> disable Natural scrolling
+- System Settings -> Keyboard -> Text Input -> Input Sources -> Edit... -> disable "Add period with double-space"
 - Night light —> custom —> from 02:00 to 01:59
 
 #### Terminal
