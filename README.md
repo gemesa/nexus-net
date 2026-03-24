@@ -247,3 +247,15 @@ See [rpi.md](rpi.md)
 #### Overview
 
 - 4TB
+
+---
+
+### Travel router - [TP-Link M7350 v9](https://www.tp-link.com/en/home-networking/mifi/m7350/v9/)
+
+#### Ovewview
+
+- LTE router with SD card and battery
+
+#### Details
+
+See [tp-link-m7350.md](tp-link-m7350.md).
