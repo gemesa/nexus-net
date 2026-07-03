@@ -231,13 +231,15 @@ sudo wg-quick down l580
 ##### VS Code
 
 - https://code.visualstudio.com/docs/setup/linux
-- **File** --> **Preferences** --> **Settings** --> **Text Editor**
-  - --> **Font**
-    - Font size: 12
-    - Font family: Fira Code
-  - --> **Files**
-    - Auto Save: afterDelay
-  - --> **Tab Size**: 4
+- **File** --> **Preferences** --> **Settings**
+  - --> **Text Editor**
+    - --> **Font**
+      - Font size: 12
+      - Font family: Fira Code
+    - --> **Files**
+      - Auto Save: afterDelay
+    - --> **Tab Size**: 4
+  - --> **Chat** --> **Miscellaneous** --> Disable AI Features
 - **World Wrap** --> on
 - **Extensions**
   - **Assembly for ARM64**
