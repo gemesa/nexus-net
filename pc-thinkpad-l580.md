@@ -240,7 +240,7 @@ sudo wg-quick down l580
       - Auto Save: afterDelay
     - --> **Tab Size**: 4
   - --> **Chat** --> **Miscellaneous** --> Disable AI Features
-- **World Wrap** --> on
+- **Word Wrap** --> on
 - **Extensions**
   - **Assembly for ARM64**
   - **Dependi**

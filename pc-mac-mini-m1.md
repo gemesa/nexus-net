@@ -96,7 +96,7 @@ $ brew install --cask rectangle
 #### Terminal
 
 - install Nord theme: https://github.com/nordtheme/terminal-app
-- `brew install font-fire-code`
+- `brew install font-fira-code`
 - set Fira code and font size 12
 
 #### LLVM
