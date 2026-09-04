@@ -95,7 +95,9 @@ $ brew install --cask rectangle
 
 #### Terminal
 
-- install Nord theme: https://github.com/nordtheme/terminal-app
+- ~~install Nord theme: https://github.com/nordtheme/terminal-app~~
+- install Nord theme: https://github.com/Gogh-Co/Gogh
+  - see https://github.com/Gogh-Co/Gogh/issues/203
 - `brew install font-fira-code`
 - set Fira code and font size 12
 
