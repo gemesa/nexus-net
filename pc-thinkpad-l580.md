@@ -120,8 +120,9 @@ nvme2 /dev/disk/by-uuid/<UUID> <path to LUKS key> luks,nofail
 - `sudo dnf install fira-code-fonts`
   - `fc-list : family style | grep "Fira"`
 - configure `gnome-terminal`
-  - install nord theme
-    - https://github.com/arcticicestudio/nord-gnome-terminal
+  - ~~install Nord theme: https://github.com/arcticicestudio/nord-gnome-terminal~~
+  - install Nord theme: https://github.com/Gogh-Co/Gogh
+    - see https://github.com/Gogh-Co/Gogh/issues/203
   - set font to fira code (size: 10) at **Terminal** --> **Preferences** --> **Profiles** --> **Nord** --> **Text**
 
 #### ssh
