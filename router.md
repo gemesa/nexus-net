@@ -131,6 +131,127 @@ https://openwrt.org/docs/guide-user/installation/attended.sysupgrade
   - https://openwrt.org/docs/guide-user/services/ddns/client
   - https://www.youtube.com/watch?v=OWZkjawcM8A
 
+### Tailscale
+
+#### `tailscale` package
+
+For devices with enough disk space.
+
+```
+apk add tailscale
+```
+
+#### `openwrt-tailscale-enabler`
+
+For devices with enough RAM.
+
+https://github.com/adyanth/openwrt-tailscale-enabler
+
+#### Tailscale static binaries
+
+For devices with unsufficient disk space and RAM (use external USB storage).
+
+```
+# Install USB/filesystem packages
+apk add kmod-usb-storage kmod-fs-ext4 block-mount e2fsprogs
+
+# Format and mount the USB drive
+mkfs.ext4 -F /dev/sda1
+mkdir -p /mnt/usb
+mount /dev/sda1 /mnt/usb
+
+# Configure fstab for auto-mount on boot
+block detect
+# copy the 'mount' section to /etc/config/fstab
+cat /etc/config/fstab
+config 'global'
+	option	anon_swap	'0'
+	option	anon_mount	'0'
+	option	auto_swap	'1'
+	option	auto_mount	'1'
+	option	delay_root	'5'
+	option	check_fs	'0'
+
+config 'mount'
+	option	target	'/mnt/usb'
+	option	uuid	'YOUR-UUID-HERE'
+	option	enabled	'1'
+mount -a
+mount | grep /mnt/usb
+
+# Download and extract Tailscale binaries onto the USB drive
+mkdir -p /mnt/usb/tailscale-bin
+cd /mnt/usb/tailscale-bin
+# Check arch
+uname -a
+wget https://pkgs.tailscale.com/stable/tailscale_1.102.3_mips.tgz
+tar xzf tailscale_1.102.3_mips.tgz
+mv tailscale_1.102.3_mips/tailscale .
+mv tailscale_1.102.3_mips/tailscaled .
+rm -rf tailscale_1.102.3_mips tailscale_1.102.3_mips.tgz
+chmod +x tailscale tailscaled
+
+# Symlink into /usr/sbin
+ln -s /mnt/usb/tailscale-bin/tailscale /usr/sbin/tailscale
+ln -s /mnt/usb/tailscale-bin/tailscaled /usr/sbin/tailscaled
+
+# Create the init.d service script
+# https://github.com/adyanth/openwrt-tailscale-enabler/blob/main/etc/init.d/tailscale
+cat /etc/init.d/tailscale
+#!/bin/sh /etc/rc.common
+
+# Copyright 2020 Google LLC.
+# SPDX-License-Identifier: Apache-2.0
+
+USE_PROCD=1
+START=99
+STOP=1
+
+start_service() {
+  procd_open_instance
+  procd_set_param command /usr/bin/tailscaled
+
+  # Set the port to listen on for incoming VPN packets.
+  # Remote nodes will automatically be informed about the new port number,
+  # but you might want to configure this in order to set external firewall
+  # settings.
+  procd_append_param command --port 41641
+
+  # OpenWRT /var is a symlink to /tmp, so write persistent state elsewhere.
+  procd_append_param command --state /etc/config/tailscaled.state
+  
+  # Persist files for TLS cert & Taildrop files
+  procd_append_param command --statedir /etc/tailscale/
+
+  procd_set_param respawn
+  procd_set_param stdout 1
+  procd_set_param stderr 1
+
+  procd_close_instance
+}
+
+stop_service() {
+  /usr/bin/tailscaled --cleanup
+}
+chmod +x /etc/init.d/tailscale
+mkdir -p /etc/tailscale
+
+# Enable, start and authenticate
+/etc/init.d/tailscale enable
+/etc/init.d/tailscale start
+tailscale up --accept-dns=false --advertise-routes=192.168.10.0/24
+
+# Add tailscale0 to the LAN firewall zone (trust tailnet traffic like LAN)
+uci show firewall | grep "zone.*name='lan'"   # confirm the zone index, e.g. @zone[0]
+uci add_list firewall.@zone[0].device='tailscale0'
+uci commit firewall
+service firewall restart
+
+# Verify
+tailscale status
+tailscale ip -4
+```
+
 ### WireGuard server
 
 - configure port forwarding (51820 - UDP) when behind a NAT
