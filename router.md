@@ -14,6 +14,10 @@ https://shadowshell.io/flash-openwrt-on-your-asus-rt-ax53u-router
 
 https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
 
+### Upgrade using Attended Sysupgrade
+
+- https://openwrt.org/docs/guide-user/installation/attended.sysupgrade
+
 ### Generic configuration
 
 - access: http://192.168.1.1
