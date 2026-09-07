@@ -6,7 +6,7 @@
   - http://chronos.lan or http://192.168.1.100
 - enable ssh at **Control Panel** --> **Terminal & SNMP** --> **Terminal**
 - enable email notifications at **Control Panel** --> **Notification** --> **Email**
-  - use a dedicated gmail account
+  - use a dedicated gmail account (**Control Panel** --> **Notification** --> **Email** --> **Email** --> **Set Up** --> **Sign In**)
   - add personal email to the recipients (rule: warning)
   - change subject prefix from [\<ip>] to [\<hostname>]
 
@@ -75,19 +75,18 @@
 
 ##### SMTP config
 
-- generate an app pw
+- generate an app pw (prerequisite: enable 2fa in the google account)
   - https://stackoverflow.com/questions/73365098/how-to-turn-on-less-secure-app-access-on-google
-- install mail server at **Package Center** --> **Synology Mail Server**
+- install mail server at **Package Center** --> **Synology MailPlus Server**
   - https://geektank.net/2022/01/29/sending-email-from-synology-via-cli-ssh-on-dsm-6/
-- enable SMTP and SMTP auth at **Synology Mail Server** --> **SMTP**
+- enable SMTP and SMTP auth at **Synology MailPlus Server** --> **Mail Delivery** --> **General**
   - hostname (FQDN): synology.com
-- configure SMTP relay at **Synology Mail Server** --> **SMTP** --> **SMTP Relay**
-  - enable SMTP relay
+- configure SMTP relay at **Synology MailPlus Server** --> **Mail Delivery** --> **Relay Settings** --> **Server List**
   - server: smtp.gmail.com
   - port: 587
   - check "Always use a secure connection (TLS)"
   - check "Authentication required"
-    - fill credentials (use the generated app pw)
+    - fill credentials (use the generated app pw *without* spaces)
 
 ##### Task config
 
