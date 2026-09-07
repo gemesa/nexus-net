@@ -16,7 +16,7 @@ https://shadowshell.io/unbrick-your-tp-link-archer-c7-openwrt-router
 
 ### Upgrade using Attended Sysupgrade
 
-- https://openwrt.org/docs/guide-user/installation/attended.sysupgrade
+https://openwrt.org/docs/guide-user/installation/attended.sysupgrade
 
 ### Generic configuration
 
