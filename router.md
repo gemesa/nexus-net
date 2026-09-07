@@ -109,15 +109,16 @@ https://openwrt.org/docs/guide-user/installation/attended.sysupgrade
 
 - https://www.dynu.com/en-US/
   - **Control Panel** --> **DDNS Services**
+    - set initial IPv4 manually via http://checkip.dyndns.com
 - TLDR
   - install `ddns-scripts`
   - install `luci-app-ddns`
   - **Services** --> **Dynamic DNS** --> Edit `myddns_ipv4`
     - **Basic Settings**
       - enable
-      - Lookup Hostname
+      - Lookup Hostname (same as Domain)
       - DDNS Service provider: dynu.com
-      - Domain
+      - Domain (same as Lookup Hostname)
       - Username
       - Password (use IP Update Password instead of account password)
       - Use HTTP Secure
