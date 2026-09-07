@@ -196,7 +196,9 @@ echo "[FINISH] $(date)" >> $LOG_FILE
     - port: default
   - https://www.youtube.com/watch?v=d5rqwLv1gIU
   - https://kb.synology.com/en-in/DSM/help/LogCenter/logcenter_server?version=6
-- TODO: enable 2FA
+- enable 2FA
+  - **Security** --> **Account** --> Enforce 2-factor authentication for the following users: Administrator group users
+  - follow the note as well: **Note: You can set up 2-factor authentication for your account in Personal.**
 - TODO: review these:
   - https://www.itsmdaily.com/how-to-secure-synology-nas-against-exploits-malware-cryptolockers/
   - https://www.youtube.com/watch?v=916idkMTuKg
