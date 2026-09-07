@@ -132,7 +132,7 @@ https://openwrt.org/docs/guide-user/installation/attended.sysupgrade
 
 ### WireGuard server
 
-- configure port forwarding (51820) when behind a NAT
+- configure port forwarding (51820 - UDP) when behind a NAT
 
 #### Install WG and add peers
 
