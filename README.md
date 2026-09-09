@@ -95,6 +95,15 @@ See [router.md](router.md)
 
 ---
 
+### Switch - [TP-Link TL-SG108PE](https://www.tp-link.com/en/business-networking/soho-switch-easy-smart/tl-sg108pe/)
+
+#### Overview
+
+- managed switch
+- PoE
+
+---
+
 ### NAS - [Synology DS920+](https://global.download.synology.com/download/Document/Hardware/DataSheet/DiskStation/20-year/DS920+/enu/Synology_DS920_Plus_Data_Sheet_enu.pdf)
 
 #### Overview
