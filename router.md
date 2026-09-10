@@ -264,6 +264,8 @@ tailscale up --accept-dns=false --advertise-routes=192.168.10.0/24
 # Add tailscale0 to the LAN firewall zone (trust tailnet traffic like LAN)
 uci show firewall | grep "zone.*name='lan'"   # confirm the zone index, e.g. @zone[0]
 uci add_list firewall.@zone[0].device='tailscale0'
+# or alternatively (if using named sections)
+uci add_list firewall.lan.device='tailscale0'
 uci commit firewall
 service firewall restart
 
