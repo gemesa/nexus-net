@@ -179,7 +179,8 @@ config 'mount'
 mount -a
 mount | grep /mnt/usb
 
-# Download and extract Tailscale binaries onto the USB drive
+# Download and extract Tailscale binaries onto the USB drive (little-endian)
+# for big-endian binaries, see below
 mkdir -p /mnt/usb/tailscale-bin
 cd /mnt/usb/tailscale-bin
 # Check arch
@@ -191,9 +192,28 @@ mv tailscale_1.102.3_mips/tailscaled .
 rm -rf tailscale_1.102.3_mips tailscale_1.102.3_mips.tgz
 chmod +x tailscale tailscaled
 
+# big-endian binaries
+# Fedora host
+sudo dnf install golang
+git clone https://github.com/tailscale/tailscale.git
+git fetch --tags
+git checkout v1.102.3
+GOTOOLCHAIN=auto GOOS=linux GOARCH=mipsle GOMIPS=softfloat go build -o tailscale ./cmd/tailscale
+GOTOOLCHAIN=auto GOOS=linux GOARCH=mipsle GOMIPS=softfloat go build -o tailscaled ./cmd/tailscaled
+scp -i ~/.ssh/id_ed25519_helios_np tailscale tailscaled root@192.168.1.1:/mnt/usb/tailscale-bin/
+
 # Symlink into /usr/sbin
 ln -s /mnt/usb/tailscale-bin/tailscale /usr/sbin/tailscale
 ln -s /mnt/usb/tailscale-bin/tailscaled /usr/sbin/tailscaled
+
+# /usr/bin/tailscaled is hardcoded in /etc/init.d/tailscale
+ln -sf /mnt/usb/tailscale-bin/tailscaled /usr/bin/tailscaled
+
+# iptables, ip6tables, kmod-tun packages are needed
+# linuxfw: clear iptables: exec: "iptables": executable file not found in $PATH
+# linuxfw: clear ip6tables: exec: "ip6tables": executable file not found in $PATH
+# Missing required package kmod-tun; run: apk add kmod-tun
+apk add iptables ip6tables kmod-tun
 
 # Create the init.d service script
 # https://github.com/adyanth/openwrt-tailscale-enabler/blob/main/etc/init.d/tailscale
