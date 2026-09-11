@@ -259,7 +259,7 @@ mkdir -p /etc/tailscale
 # Enable, start and authenticate
 /etc/init.d/tailscale enable
 /etc/init.d/tailscale start
-tailscale up --accept-dns=false --advertise-routes=192.168.10.0/24
+tailscale up --accept-dns=false --advertise-routes=192.168.10.0/24,192.168.0.0/24
 
 # Add tailscale0 to the LAN firewall zone (trust tailnet traffic like LAN)
 uci show firewall | grep "zone.*name='lan'"   # confirm the zone index, e.g. @zone[0]
