@@ -133,7 +133,18 @@ https://openwrt.org/docs/guide-user/installation/attended.sysupgrade
 
 ### Tailscale
 
-#### `tailscale` package
+#### Fedora
+
+- https://tailscale.com/docs/install/linux
+
+```
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up --accept-routes
+```
+
+#### OpenWRT
+
+##### `tailscale` package
 
 For devices with enough disk space.
 
@@ -141,13 +152,13 @@ For devices with enough disk space.
 apk add tailscale
 ```
 
-#### `openwrt-tailscale-enabler`
+##### `openwrt-tailscale-enabler`
 
 For devices with enough RAM.
 
 https://github.com/adyanth/openwrt-tailscale-enabler
 
-#### Tailscale static binaries
+##### Tailscale static binaries
 
 For devices with unsufficient disk space and RAM (use external USB storage).
 
