@@ -133,6 +133,10 @@ https://openwrt.org/docs/guide-user/installation/attended.sysupgrade
 
 ### Tailscale
 
+#### Android
+
+- https://tailscale.com/docs/install/android
+
 #### Fedora
 
 - https://tailscale.com/docs/install/linux
