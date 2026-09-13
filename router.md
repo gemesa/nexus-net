@@ -260,6 +260,8 @@ mkdir -p /etc/tailscale
 /etc/init.d/tailscale enable
 /etc/init.d/tailscale start
 # check for conflicts first, e.g. 192.168.0.1 is commonly used by ISP devices
+# if 192.168.1.0 cannot be changed, approve only one 192.168.0.0/24 subnet at a time
+# at https://console.tailscale.com/admin/machines --> Edit route settings --> Subnet routes
 tailscale up --accept-dns=false --advertise-routes=192.168.10.0/24,192.168.0.0/24
 
 # Add tailscale0 to the LAN firewall zone (trust tailnet traffic like LAN)
