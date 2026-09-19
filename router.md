@@ -133,6 +133,10 @@ https://openwrt.org/docs/guide-user/installation/attended.sysupgrade
 
 ### Tailscale
 
+#### Console
+
+- https://console.tailscale.com/admin/machines
+
 #### Android
 
 - https://tailscale.com/docs/install/android
