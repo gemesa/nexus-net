@@ -189,7 +189,8 @@ config 'global'
 	option	auto_swap	'1'
 	option	auto_mount	'1'
 	option	delay_root	'5'
-	option	check_fs	'0'
+  # check_fs needs e2fsck (e2fsprogs package)
+	option	check_fs	'1'
 
 config 'mount'
 	option	target	'/mnt/usb'
@@ -198,12 +199,12 @@ config 'mount'
 mount -a
 mount | grep /mnt/usb
 
-# Download and extract Tailscale binaries onto the USB drive (little-endian)
-# for big-endian binaries, see below
+# Download and extract Tailscale binaries onto the USB drive
+# big-endian
 mkdir -p /mnt/usb/tailscale-bin
 cd /mnt/usb/tailscale-bin
-# Check arch
-uname -a
+# Check arch: mips_* = big-endian, mipsel_* = little-endian
+grep DISTRIB_ARCH /etc/openwrt_release
 wget https://pkgs.tailscale.com/stable/tailscale_1.102.3_mips.tgz
 tar xzf tailscale_1.102.3_mips.tgz
 mv tailscale_1.102.3_mips/tailscale .
@@ -211,14 +212,15 @@ mv tailscale_1.102.3_mips/tailscaled .
 rm -rf tailscale_1.102.3_mips tailscale_1.102.3_mips.tgz
 chmod +x tailscale tailscaled
 
-# big-endian binaries
+# little-endian
 # Fedora host
 sudo dnf install golang
 git clone https://github.com/tailscale/tailscale.git
+cd tailscale
 git fetch --tags
 git checkout v1.102.3
-GOTOOLCHAIN=auto GOOS=linux GOARCH=mipsle GOMIPS=softfloat go build -o tailscale ./cmd/tailscale
-GOTOOLCHAIN=auto GOOS=linux GOARCH=mipsle GOMIPS=softfloat go build -o tailscaled ./cmd/tailscaled
+GOTOOLCHAIN=auto GOOS=linux GOARCH=mipsle GOMIPS=softfloat go build -ldflags="-s -w" -o tailscale ./cmd/tailscale
+GOTOOLCHAIN=auto GOOS=linux GOARCH=mipsle GOMIPS=softfloat go build -ldflags="-s -w" -o tailscaled ./cmd/tailscaled
 scp -i ~/.ssh/id_ed25519_helios_np tailscale tailscaled root@192.168.1.1:/mnt/usb/tailscale-bin/
 
 # Symlink into /usr/sbin
@@ -227,6 +229,26 @@ ln -s /mnt/usb/tailscale-bin/tailscaled /usr/sbin/tailscaled
 
 # /usr/bin/tailscaled is hardcoded in /etc/init.d/tailscale
 ln -sf /mnt/usb/tailscale-bin/tailscaled /usr/bin/tailscaled
+ln -sf /mnt/usb/tailscale-bin/tailscale /usr/bin/tailscale
+
+# Alternatively, build a smaller combined binary (tailscale + tailscaled in one)
+# https://tailscale.com/docs/how-to/set-up-small-tailscale
+# https://github.com/tailscale/tailscale/blob/main/build_dist.sh
+# NOTE: --extra-small removes necessary features: e.g. ts_omit_advertiseroutes
+# $ GOOS= GOARCH= go run ./cmd/featuretags --min --add=osrouter
+# ts_omit_ace,ts_omit_acme,ts_omit_advertiseexitnode,ts_omit_advertiseroutes,...
+# NOTE: use --box --strip instead
+# GOARCH=mips for big-endian, GOARCH=mipsle for little-endian
+# Fedora host, in the tailscale repo
+GOTOOLCHAIN=auto GOOS=linux GOARCH=mipsle GOMIPS=softfloat ./build_dist.sh --box --strip -o tailscale.combined ./cmd/tailscaled
+scp -i ~/.ssh/id_ed25519_helios_np tailscale.combined root@192.168.1.1:/mnt/usb/tailscale-bin/
+# on the router
+cd /mnt/usb/tailscale-bin
+chmod +x tailscale.combined
+mv /mnt/usb/tailscale-bin/tailscale /mnt/usb/tailscale-bin/tailscale.old
+mv /mnt/usb/tailscale-bin/tailscaled /mnt/usb/tailscale-bin/tailscaled.old
+ln -sf /mnt/usb/tailscale-bin/tailscale.combined /mnt/usb/tailscale-bin/tailscale
+ln -sf /mnt/usb/tailscale-bin/tailscale.combined /mnt/usb/tailscale-bin/tailscaled
 
 # iptables, ip6tables, kmod-tun packages are needed
 # linuxfw: clear iptables: exec: "iptables": executable file not found in $PATH
