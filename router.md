@@ -269,6 +269,12 @@ START=99
 STOP=1
 
 start_service() {
+  # wait up to 60s for the USB drive
+  for i in $(seq 1 60); do
+    [ -x /mnt/usb/tailscale-bin/tailscaled ] && break
+    sleep 1
+  done
+
   procd_open_instance
   procd_set_param command /usr/bin/tailscaled
 
@@ -284,7 +290,10 @@ start_service() {
   # Persist files for TLS cert & Taildrop files
   procd_append_param command --statedir /etc/tailscale/
 
-  procd_set_param respawn
+  # lower RAM use (default GOGC=100)
+  procd_set_param env GOGC=25
+  # keep retrying forever (default 3600 5 5)
+  procd_set_param respawn 3600 5 0
   procd_set_param stdout 1
   procd_set_param stderr 1
 
