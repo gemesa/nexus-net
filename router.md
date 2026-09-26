@@ -341,6 +341,7 @@ tailscale ip -4
 Update `/etc/sysupgrade.conf`:
 
 ```
+# Tailscale
 # state
 /etc/config/tailscaled.state
 # USB drive for bins
