@@ -364,6 +364,9 @@ Verify `/etc/sysupgrade.conf`:
 
 ```
 sysupgrade -l | grep -E 'tailscale|fstab|firewall'
+sysupgrade -b /tmp/backup.tar.gz
+tar tzvf /tmp/backup.tar.gz | grep -E 'tailscale|fstab|firewall'
+rm /tmp/backup.tar.gz
 ```
 
 ### WireGuard server
