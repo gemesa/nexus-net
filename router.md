@@ -302,7 +302,10 @@ start_service() {
   procd_append_param command --statedir /etc/tailscale/
 
   # lower RAM use (default GOGC=100)
-  procd_set_param env GOGC=25
+  #
+  # Health check:
+  # ... iptables v1.8.10 (nf_tables): Couldn't load match `conntrack':No such file or directory
+  procd_set_param env GOGC=25 TS_DEBUG_FIREWALL_MODE=nftables
   # keep retrying forever (default 3600 5 5)
   procd_set_param respawn 3600 5 0
   procd_set_param stdout 1
