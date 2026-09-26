@@ -183,7 +183,7 @@ https://github.com/adyanth/openwrt-tailscale-enabler
 
 ##### Tailscale static binaries
 
-For devices with unsufficient disk space and RAM (use external USB storage).
+For devices with insufficient disk space and RAM (use external USB storage).
 
 ```
 # Install USB/filesystem packages
