@@ -242,10 +242,6 @@ scp -i ~/.ssh/id_ed25519_helios_np tailscale tailscaled root@192.168.1.1:/mnt/us
 ln -s /mnt/usb/tailscale-bin/tailscale /usr/sbin/tailscale
 ln -s /mnt/usb/tailscale-bin/tailscaled /usr/sbin/tailscaled
 
-# /usr/bin/tailscaled is hardcoded in /etc/init.d/tailscale
-ln -sf /mnt/usb/tailscale-bin/tailscaled /usr/bin/tailscaled
-ln -sf /mnt/usb/tailscale-bin/tailscale /usr/bin/tailscale
-
 # Alternatively, build a smaller combined binary (tailscale + tailscaled in one)
 # https://tailscale.com/docs/how-to/set-up-small-tailscale
 # https://github.com/tailscale/tailscale/blob/main/build_dist.sh
@@ -291,7 +287,7 @@ start_service() {
   done
 
   procd_open_instance
-  procd_set_param command /usr/bin/tailscaled
+  procd_set_param command /usr/sbin/tailscaled
 
   # Set the port to listen on for incoming VPN packets.
   # Remote nodes will automatically be informed about the new port number,
