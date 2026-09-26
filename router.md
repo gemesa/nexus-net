@@ -338,6 +338,28 @@ tailscale status
 tailscale ip -4
 ```
 
+Update `/etc/sysupgrade.conf`:
+
+```
+# state
+/etc/config/tailscaled.state
+# USB drive for bins
+/etc/config/fstab
+# tailscale0 in lan
+/etc/config/firewall
+# service
+/etc/init.d/tailscale
+# START=99
+/etc/rc.d/S99tailscale
+# STOP=1
+/etc/rc.d/K1tailscale
+# statedir
+/etc/tailscale/
+# symlinks to the USB binaries
+/usr/sbin/tailscale
+/usr/sbin/tailscaled
+```
+
 ### WireGuard server
 
 - configure port forwarding (51820 - UDP) when behind a NAT
