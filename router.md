@@ -320,6 +320,8 @@ mkdir -p /etc/tailscale
 # Enable, start and authenticate
 /etc/init.d/tailscale enable
 /etc/init.d/tailscale start
+# Check service params
+ubus call service list '{"name":"tailscale"}' 
 # check for conflicts first, e.g. 192.168.0.1 is commonly used by ISP devices
 # if 192.168.1.0 cannot be changed, approve only one 192.168.0.0/24 subnet at a time
 # at https://console.tailscale.com/admin/machines --> Edit route settings --> Subnet routes
