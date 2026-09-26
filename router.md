@@ -360,6 +360,12 @@ Update `/etc/sysupgrade.conf`:
 /usr/sbin/tailscaled
 ```
 
+Verify `/etc/sysupgrade.conf`:
+
+```
+sysupgrade -l | grep -E 'tailscale|fstab|firewall'
+```
+
 ### WireGuard server
 
 - configure port forwarding (51820 - UDP) when behind a NAT
