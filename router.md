@@ -312,7 +312,7 @@ start_service() {
 }
 
 stop_service() {
-  /usr/bin/tailscaled --cleanup
+  /usr/sbin/tailscaled --cleanup
 }
 chmod +x /etc/init.d/tailscale
 mkdir -p /etc/tailscale
