@@ -165,6 +165,21 @@ sudo tailscale set --advertise-routes=192.168.10.0/24
 # disable key expiry in the admin console
 ```
 
+#### RPi
+
+```
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up
+# sudo tailscale set --accept-routes=false
+# https://tailscale.com/docs/features/subnet-routers
+echo 'net.ipv4.ip_forward = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf
+echo 'net.ipv6.conf.all.forwarding = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf
+sudo sysctl -p /etc/sysctl.d/99-tailscale.conf
+sudo tailscale set --advertise-routes=192.168.1.0/24
+# approve the subnet in the admin console
+# disable key expiry in the admin console
+```
+
 #### OpenWRT
 
 ##### `tailscale` package
