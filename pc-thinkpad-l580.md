@@ -80,9 +80,8 @@ nvme2 /dev/disk/by-uuid/<UUID> <path to LUKS key> luks,nofail
 - check updates in **Software** as well (system updates for example)
 - configure Dash
   - pin **Terminal**
-  - remove **Software**
   - remove **Calendar**
-  - Dash layout: **Firefox**, **Terminal**, **Files**, **Settings** + the apps below
+  - Dash layout: **Firefox**, **Terminal**, **Files**, **Settings**, **Software** + the apps below
 - configure **Text Editor**
   - **Text Editor** --> **Main Menu** --> **Preferences** --> indentation: character: space, spaces per tab: 4
   - **Text Editor** --> **Main Menu** --> **Preferences** --> appearance: oblivion
@@ -143,21 +142,48 @@ $ gpg --list-secret-keys --keyid-format=long
 $ rm ~/private.asc
 ```
 
-#### Base apps
+#### Apps
 
-Plain install:
-- **[Beyond Compare](https://www.scootersoftware.com/download)**
-- **[Docker](https://docs.docker.com/engine/install/fedora/)**
-- **[Ente Auth](https://github.com/ente-io/ente/releases)**
-- **[Etcher](https://etcher.balena.io/#download-etcher)**
-- **Foliate** via **Software**
-- **[gTile](https://extensions.gnome.org/extension/28/gtile/)**
-- **LibreOffice** via **Software**
-- **[NordVPN](https://nordvpn.com/download/linux/#install-nordvpn)**
-- **NormCap** via **Software**
-- **Raspberry Pi Imager** via **Software**
-- [**Tailscale**](router.md#tailscale)
-- **[tealdeer](https://github.com/tealdeer-rs/tealdeer)**
+##### Beyond Compare
+
+- https://www.scootersoftware.com/download
+- https://www.scootersoftware.com/kb/linux_install#redhat
+
+```
+$ wget https://www.scootersoftware.com/files/bcompare-5.2.6.32774.x86_64.rpm
+$ sudo dnf install bcompare-5.2.6.32774.x86_64.rpm
+```
+
+##### Docker
+
+- https://docs.docker.com/engine/install/fedora/
+
+```
+$ sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
+$ sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+$ sudo systemctl enable --now docker
+$ sudo docker run hello-world
+```
+
+##### Ente Auth
+
+- https://github.com/ente/ente#ente-auth
+- https://github.com/ente/ente/releases?q=tag%3Aauth-v4
+
+```
+$ sudo dnf install libayatana-appindicator-gtk3
+$ wget https://github.com/ente/ente/releases/download/auth-v4.4.25/ente-auth-v4.4.25-x86_64.rpm
+$ sudo dnf install ./ente-auth-v4.4.25-x86_64.rpm
+```
+
+##### Etcher
+
+- https://github.com/balena-io/etcher#redhat-rhel-and-fedora-based-package-repository-gnulinux-x86x64
+
+```
+$ wget https://github.com/balena-io/etcher/releases/download/v2.1.7/balena-etcher-2.1.7-1.x86_64.rpm
+$ sudo dnf install balena-etcher-2.1.7-1.x86_64.rpm
+```
 
 ##### Firefox
 
@@ -177,6 +203,78 @@ Plain install:
   - **ESET PW Manager**
   - **Wappalyzer**
   - **Windscribe VPN**
+
+##### Foliate
+
+- install via **Software**
+
+##### git
+
+```
+$ gpg --list-secret-keys --keyid-format=long
+$ nano ~/.ssh/config
+$ cat ~/.ssh/config
+IdentityFile ~/.ssh/id_ed25519_github
+$ sudo chmod 600 ~/.ssh/config
+$ git config --global user.name "Andras Gemes"
+$ git config --global user.email "gemesa@protonmail.com"
+$ git config --global commit.gpgsign true
+$ git config --global user.signingkey <key ID>
+$ git config --global core.editor "nano"
+$ git config --global --list
+```
+
+##### LibreOffice
+
+- install via **Software**
+
+##### Malware analysis tools
+
+- https://github.com/gemesa/malware-analysis-toolkit
+
+##### Metasploit
+
+- https://docs.metasploit.com/docs/using-metasploit/getting-started/nightly-installers.html#installing-metasploit-on-linux--macos
+
+##### nano
+
+```
+$ nano ~/.nanorc
+$ cat ~/.nanorc
+set constantshow
+```
+
+##### NordVPN
+
+- https://nordvpn.com/download/linux/
+
+```
+$ sh <(wget -qO - https://downloads.nordcdn.com/apps/linux/install.sh) -p nordvpn-gui
+```
+
+##### NormCap
+
+- install via **Software**
+
+##### Raspberry Pi Imager
+
+- install via **Software**
+
+##### Rust
+
+- https://www.rust-lang.org/tools/install
+
+##### Tailscale
+
+- [setup](router.md#tailscale)
+
+##### tealdeer
+
+- https://github.com/tealdeer-rs/tealdeer
+
+```
+$ cargo install tealdeer
+```
 
 ##### VS Code
 
@@ -198,42 +296,6 @@ Plain install:
   - **rust-analyzer**
   - **YARA Language**
 
-##### Malware analysis tools
-
-- https://github.com/gemesa/malware-analysis-toolkit
-
-##### Rust
-
-- https://www.rust-lang.org/tools/install
-
-##### Metasploit
-
-- https://docs.metasploit.com/docs/using-metasploit/getting-started/nightly-installers.html#installing-metasploit-on-linux--macos
-
-##### git
-
-```
-$ gpg --list-secret-keys --keyid-format=long
-$ nano ~/.ssh/config
-$ cat ~/.ssh/config
-IdentityFile ~/.ssh/id_ed25519_github
-$ sudo chmod 600 ~/.ssh/config
-$ git config --global user.name "Andras Gemes"
-$ git config --global user.email "gemesa@protonmail.com"
-$ git config --global commit.gpgsign true
-$ git config --global user.signingkey <key ID>
-$ git config --global core.editor "nano"
-$ git config --global --list
-```
-
-##### nano
-
-```
-$ nano ~/.nanorc
-$ cat ~/.nanorc
-set constantshow
-```
-
 ##### yazi
 
 References:
@@ -253,17 +315,16 @@ $ fc-list | grep -i nerd
 # restart terminal
 ```
 
-how to change font in WSL:
-- download on the host: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/FiraCode.zip
-- double click on FiraCodeNerdFont-Regular.ttf and install it
-- right click in WSL --> Settings --> Profiles --> Default
-  - --> color scheme: one half dark
-  - --> font face: firacode nerd font
-  - --> font size: 10
-
 #### Optional apps
 
-Plain install:
-- **GIMP** via **Software**
-- **Pinta** via **Software**
-- **VLC** via **Software**
+##### GIMP
+
+- install via **Software**
+
+##### Pinta
+
+- install via **Software**
+
+##### VLC
+
+- install via **Software**
