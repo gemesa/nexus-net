@@ -128,6 +128,19 @@ Host *
     PubkeyAcceptedKeyTypes=+ssh-rsa
 ```
 
+Allow SHA1 temporarily if necessary:
+
+```
+$ update-crypto-policies --show
+DEFAULT
+$ sudo update-crypto-policies --set DEFAULT:SHA1
+# run the cmd ... then revert the policy change
+$ sudo update-crypto-policies --set DEFAULT
+# reboot
+$ update-crypto-policies --show
+DEFAULT
+```
+
 - https://www.reddit.com/r/Fedora/comments/jh9iyi/f33_openssh_no_mutual_signature_algorithm/
 - https://confluence.atlassian.com/bitbucketserverkb/ssh-rsa-key-rejected-with-message-no-mutual-signature-algorithm-1026057701.html
 - https://unix.stackexchange.com/questions/630446/ssh-in-fedora-33-error-sign-and-send-pubkey-no-mutual-signature-supported
