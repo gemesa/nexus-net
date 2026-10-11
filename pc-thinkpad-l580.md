@@ -84,13 +84,15 @@ nvme2 /dev/disk/by-uuid/<UUID> <path to LUKS key> luks,nofail
   - remove **Calendar**
   - Dash layout: **Firefox**, **Terminal**, **Files**, **Settings** + the apps below
 - configure **Text Editor**
-  - **Text Editor** --> **View Options** --> spaces per tab: 4
+  - **Text Editor** --> **Main Menu** --> **Preferences** --> indentation: character: space, spaces per tab: 4
   - **Text Editor** --> **Main Menu** --> **Preferences** --> appearance: oblivion
 - dark theme + nightlight
   - **Settings** --> **Appearance** --> **Style**
-  - **Settings** --> **Night Light**
-    - manual schedule
-    - color temp: 3/4
+  - **Settings** --> **Displays**
+    - --> **Night Light**
+      - manual schedule: 2 am - 2 am
+      - color temp: 3/4
+    - --> Scale: 100%
 - update DNF config (`/etc/dnf/dnf.conf`)
   - `max_parallel_downloads=10`
     - https://www.reddit.com/r/Fedora/comments/bc9pyz/why_is_dnf_so_excruciatingly_slow/
@@ -98,9 +100,9 @@ nvme2 /dev/disk/by-uuid/<UUID> <path to LUKS key> luks,nofail
     - https://www.reddit.com/r/Fedora/comments/rpttto/make_y_the_default_action_in_dnf/
 - install **Gnome Tweaks** from **Software**
   - install Adwaita-dark theme
-    - `sudo dnf install gnome-themes-extra`
+    - `sudo dnf install adw-gtk3-theme`
   - **Tweaks** --> **Appearance** --> **Styles** --> **Legacy Applications**
-    - set Adwaita-dark
+    - set `Adw-gtk3-dark`
   - **Tweaks** --> **Windows** --> **Titlebar Buttons**
     - check "Maximize"
     - check "Minimize"
@@ -112,18 +114,8 @@ nvme2 /dev/disk/by-uuid/<UUID> <path to LUKS key> luks,nofail
     - https://gitlab.com/kalilinux/packages/kali-defaults/-/blob/kali/master/etc/skel/.zshrc
     - https://unix.stackexchange.com/questions/655096/what-zsh-theme-does-kali-use
 - overwrite `.zsh_history` using the backup copy
-- make journal logs persistent
-  - https://www.golinuxcloud.com/enable-persistent-logging-in-systemd-journald/
-  - `sudo nano /etc/systemd/journald.conf`
-    - `#Storage=auto` --> `Storage=persistent`
-  - see logs at `/var/log/journal`
-- `sudo dnf install fira-code-fonts`
-  - `fc-list : family style | grep "Fira"`
-- configure `gnome-terminal`
-  - ~~install Nord theme: https://github.com/arcticicestudio/nord-gnome-terminal~~
-  - install Nord theme: https://github.com/Gogh-Co/Gogh
-    - see https://github.com/Gogh-Co/Gogh/issues/203
-  - set font to fira code (size: 10) at **Terminal** --> **Preferences** --> **Profiles** --> **Nord** --> **Text**
+- terminal (`ptyxis-agent`)
+  - **Preferences** --> **Appearance** --> Nord
 
 #### ssh
 
@@ -146,9 +138,9 @@ Host *
 - copy gpg keys from backup to `~/`
 
 ```
-$ gpg --import ~/private.gpg
+$ gpg --import ~/private.asc
 $ gpg --list-secret-keys --keyid-format=long
-$ rm ~/private.gpg
+$ rm ~/private.asc
 ```
 
 #### Base apps
@@ -164,6 +156,7 @@ Plain install:
 - **[NordVPN](https://nordvpn.com/download/linux/#install-nordvpn)**
 - **NormCap** via **Software**
 - **Raspberry Pi Imager** via **Software**
+- [**Tailscale**](router.md#tailscale)
 - **[tealdeer](https://github.com/tealdeer-rs/tealdeer)**
 
 ##### Firefox
@@ -185,65 +178,17 @@ Plain install:
   - **Wappalyzer**
   - **Windscribe VPN**
 
-##### WireGuard
-
-`sudo dnf install wireguard-tools`
-
-###### Client config
-
-- use the backup `l580.conf` or generate a new key
-- https://openwrt.org/docs/guide-user/services/vpn/wireguard/server
-- necessary keys (client config):
-  - `wgclient.key`
-  - `wgclient.psk`
-  - `wgserver.pub`
-    - generate the server public key from the server private key
-    - **LuCI** --> **Network** --> **Interfaces** --> **VPN** --> **Edit** --> **General Settings** --> **Private Key**
-- necessary keys (server config):
-  - `wgserver.key`
-  - `wgclient.pub`
-  - `wgclient.psk`
-
-```
-[Interface]
-Address = <ipv4 address>, <ipv6 address>
-PrivateKey = <content of wgclient.key>
-DNS = <DNS address>
-[Peer]
-PublicKey = <content of wgserver.pub>
-PresharedKey = <content of wgclient.psk>
-AllowedIPs = 0.0.0.0/0, ::/0
-Endpoint = <(DDNS) domain or IP address>:51820
-```
-
-###### Check connection
-
-```
-sudo wg-quick up l580
-sudo wg show
-smbclient //chronos.lan/<shared folder>
-sudo wg-quick down l580
-```
-
-- https://unix.stackexchange.com/questions/206415/sending-files-over-samba-with-command-line
-- https://help.ubuntu.com/community/Samba/SambaClientGuide
-- https://unix.stackexchange.com/questions/285941/smbclient-asking-for-password
-
 ##### VS Code
 
 - https://code.visualstudio.com/docs/setup/linux
 - **File** --> **Preferences** --> **Settings**
   - --> **Text Editor**
-    - --> **Font**
-      - Font size: 12
-      - Font family: Fira Code
     - --> **Files**
       - Auto Save: afterDelay
     - --> **Tab Size**: 4
   - --> **Chat** --> **Miscellaneous** --> Disable AI Features
 - **Word Wrap** --> on
 - **Extensions**
-  - **Assembly for ARM64**
   - **Dependi**
   - **Even Better TOML**
   - **Hex Editor**
@@ -251,8 +196,7 @@ sudo wg-quick down l580
   - **Markdown PDF**
   - **Nord**
   - **rust-analyzer**
-  - **Scala (Metals)**
-  - **YARA**
+  - **YARA Language**
 
 ##### Malware analysis tools
 
@@ -292,10 +236,15 @@ set constantshow
 
 ##### yazi
 
+References:
+
+- https://yazi-rs.github.io/docs/installation#cargo-binstall
+
 ```
-$ cargo install --locked --git https://github.com/sxyazi/yazi.git yazi-fm yazi-cli
-# replace v3.2.1 with the latest release
-$ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/NerdFontsSymbolsOnly.tar.xz
+$ cargo install cargo-binstall
+$ cargo binstall yazi-fm yazi-cli
+# replace v3.5.1 with the latest release
+$ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/NerdFontsSymbolsOnly.tar.xz
 $ tar -xf NerdFontsSymbolsOnly.tar.xz
 $ mkdir -p ~/.local/share/fonts
 $ mv *.ttf ~/.local/share/fonts/
@@ -305,30 +254,12 @@ $ fc-list | grep -i nerd
 ```
 
 how to change font in WSL:
-- download on the host: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip
+- download on the host: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/FiraCode.zip
 - double click on FiraCodeNerdFont-Regular.ttf and install it
 - right click in WSL --> Settings --> Profiles --> Default
   - --> color scheme: one half dark
   - --> font face: firacode nerd font
   - --> font size: 10
-
-##### Waydroid
-
-```
-$ sudo waydroid init -s GAPPS -f -chttps://ota.waydro.id/system -v https://ota.waydro.id/vendor
-$ sudo firewall-cmd --add-port=53/udp --permanent
-$ sudo firewall-cmd --add-port=67/udp --permanent
-$ sudo firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -j ACCEPT
-$ sudo firewall-cmd --permanent --direct --add-rule ipv6 filter FORWARD 0 -j ACCEPT
-$ firewall-cmd --reload
-$ systemctl status waydroid-container.service
-$ waydroid session start
-$ waydroid show-full-ui
-```
-
-- https://docs.waydro.id/usage/install-on-desktops#fedora
-- https://docs.waydro.id/faq/google-play-certification
-- https://www.reddit.com/r/waydroid/comments/z57rx7/help_i_cant_connect_waydroid_to_internet/
 
 #### Optional apps
 
