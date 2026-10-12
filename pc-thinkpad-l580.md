@@ -76,6 +76,7 @@ nvme2 /dev/disk/by-uuid/<UUID> <path to LUKS key> luks,nofail
 - enable third party repos
 - set user profile pic
 - set wallpaper
+- `sudo hostnamectl set-hostname fedora`
 - `sudo dnf upgrade --refresh`
 - check updates in **Software** as well (system updates for example)
 - configure Dash
