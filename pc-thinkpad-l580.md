@@ -168,6 +168,15 @@ $ wget https://www.scootersoftware.com/files/bcompare-5.2.6.32774.x86_64.rpm
 $ sudo dnf install bcompare-5.2.6.32774.x86_64.rpm
 ```
 
+##### Google Chrome
+
+- https://discussion.fedoraproject.org/t/how-to-install-google-chrome-on-fedora-41/134918/2
+
+```
+$ sudo dnf config-manager setopt google-chrome.enabled=1
+$ sudo dnf install google-chrome-stable
+```
+
 ##### Docker
 
 - https://docs.docker.com/engine/install/fedora/
